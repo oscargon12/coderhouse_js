@@ -7,6 +7,21 @@ $primary: #f93c64;
   font-family: 'Poppins', sans-serif;
 }
 
+//Text Color
+.text-color-app{
+  color: $primary;
+}
+
+//background Color
+.bg-color-app{
+  background-color: $primary;
+}
+
+// Weight
+.weight-600{
+  font-weight: 600;
+}
+
  #wrapper {
   overflow-x: hidden;
 }
@@ -30,7 +45,8 @@ width: 12rem;
 }
 
 .menu-item{
-  color: #616161;
+  color: #424242;
+  font-weight: 400;
 }
 
 #page-content-wrapper {

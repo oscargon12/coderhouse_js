@@ -2,6 +2,18 @@
   font-family: 'Poppins', sans-serif;
 }
 
+.text-color-app {
+  color: #f93c64;
+}
+
+.bg-color-app {
+  background-color: #f93c64;
+}
+
+.weight-600 {
+  font-weight: 600;
+}
+
 #wrapper {
   overflow-x: hidden;
 }
@@ -23,7 +35,8 @@
 }
 
 .menu-item {
-  color: #616161;
+  color: #424242;
+  font-weight: 400;
 }
 
 #page-content-wrapper {
