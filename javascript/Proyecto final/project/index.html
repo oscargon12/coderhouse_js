@@ -30,18 +30,18 @@
   <div class="d-flex" id="wrapper">
 
     <!-- Sidebar -->
-    <div class="bg-light" id="sidebar-wrapper">
-      <div class="sidebar-heading">Start Bootstrap </div>
+    <sidebar class="bg-light" id="sidebar-wrapper">
+      <div class="sidebar-heading position-fixed text-color-app"> <h1> <img src="./assets/img/logo.svg" alt="" class="w-25"> Tuzi </h1></div>
       <div class="h-100 d-flex">
         <div class="list-group d-flex pl-4  my-auto">
-          <a href="#" class="menu-item mt-0"><small class="mr-3 text-right text-color-app"> <i class="fas fa-hamburger"></i> </small> Nuevo alimento</a>
-          <a href="#" class="menu-item mt-0"><small class="mr-3 text-right text-color-app"> <i class="fas fa-hamburger"></i> </small> Lista de alimentos</a>
+          <a href="#" class="menu-item mt-0"><small class="mr-3 text-right text-color-app"> <i class="fas fa-plus"></i> </small> Nuevo alimento</a>
+          <a href="#" class="menu-item mt-4"><small class="mr-3 text-right text-color-app"> <i class="fas fa-hamburger"></i> </small> Mis alimentos</a>
           <a href="#" class="menu-item mt-4"> <small class="mr-3 text-right text-color-app"> <i class="fas fa-utensils"></i> </small> Recetas</a>
-          <a href="#" class="menu-item mt-4"> <small class="mr-3 text-right text-color-app"> <i class="fas fa-book-open"></i> </small> Historial</a>
+          <!-- <a href="#" class="menu-item mt-4"> <small class="mr-3 text-right text-color-app"> <i class="fas fa-book-open"></i> </small> Historial</a> -->
           <a href="#" class="menu-item mt-4"> <small class="mr-3 text-right text-color-app"> <i class="fas fa-info"></i> </small> Acerca de</a>
         </div>
       </div>
-    </div>
+    </sidebar>
     <!-- /#sidebar-wrapper -->
 
     <!-- Page Content -->
@@ -75,74 +75,90 @@
       </nav>
 
       <section class="container-fluid">
-        <h1 class="mt-4">Bienvenido a Tusi</h1>
-        <p>¡Aprovecha la comida! Inicia registrando un alimento, o revisa tus alimentos próximos a vencer, y genera una receta espectacular </p>
+        <div class="row mt-0 mt-md-5">
+          <div class="col-12 col-md-3 ml-4 mt-2 d-none d-md-block ">
+            <img src="./assets/img/bg-food2.png" alt="food background" class="w-100">
+          </div>
+          <div class="col-12 col-md-8 mt-1 mt-md-5">
+            <img src="./assets/img/logo.svg" alt="" class="d-block d-sm-none w-25 mx-auto" height="50">
+            <h1 >Bienvenido a Tuzi</h1>
+            <p>¡Aprovecha la comida! Inicia registrando un alimento, o revisa tus alimentos próximos a vencer, y genera una receta espectacular </p>
+          </div>
+        </div>
+        
       </section>
+
+      <!-- <a href='https://www.freepik.es/vectores/comida'>Vector de Comida creado por bimbimkha - www.freepik.es</a> -->
+      <!-- <a href='https://www.freepik.es/vectores/fondo'>Vector de Fondo creado por pikisuperstar - www.freepik.es</a> -->
 
       <!-- === Registro de alimentos === -->
       <section class="container-fluid mt-5">
         <form>
           <div class="form-row">
-
-            <!-- Tipo de producto -->
-            <div class="col-12 col-sm-6 col-md-3">
-              <div class="form-group">
-                <label for="exampleFormControlSelect1" class="mb-0"><small> Tipo de comida</small></label>
-                <select class="form-control" id="exampleFormControlSelect1">
-                  <option> Selecciona una opción</option>
-                  <option>Cereales</option>
-                  <option>Lacteos</option>
-                  <option>Embutidos</option>
-                  <option>Frutas</option>
-                  <option>Verduras</option>
-                </select>
+            <div class="col-12">
+              <div class="row mb-0 mb-sm-3">
+                <!-- Tipo de producto -->
+                <div class="col-12 col-md-3 text-color-app mt-2 text-left text-md-right">
+                  <i class="fas fa-apple-alt"></i> Tipo de alimento
+                </div>
+                <div class="col-12 col-md-8">
+                  <div class="form-group">
+                    <!-- <label for="exampleFormControlSelect1" class="mb-0"><small> Tipo de comida</small></label> -->
+                    <select class="form-control" id="exampleFormControlSelect1">
+                      <option> Selecciona una opción</option>
+                      <option>Cereales</option>
+                      <option>Lacteos</option>
+                      <option>Embutidos</option>
+                      <option>Frutas</option>
+                      <option>Verduras</option>
+                    </select>
+                  </div>
+                </div>
               </div>
-            </div>
-
-            <!-- Producto -->
-            <div class="col-12 col-sm-6 col-md-3">
-              <div class="form-group">
-                <label for="exampleFormControlSelect1" class="mb-0"><small> Producto</small></label>
-                <select class="form-control" id="exampleFormControlSelect1">
-                  <option> Selecciona una opción</option>
-                  <option>Cereales</option>
-                  <option>Lacteos</option>
-                  <option>Embutidos</option>
-                  <option>Frutas</option>
-                  <option>Verduras</option>
-                </select>
+              
+              <!-- Producto -->
+              <div class="row mb-0 mb-sm-3">
+                <!-- Tipo de producto -->
+                <div class="col-12 col-md-3 text-color-app mt-2 text-left text-md-right">
+                  <i class="far fa-lemon"></i> Producto
+                </div>
+                <div class="col-12 col-md-8">
+                  <div class="form-group">
+                    <select class="form-control" id="exampleFormControlSelect1">
+                      <option> Selecciona una opción</option>
+                      <option>Cereales</option>
+                      <option>Lacteos</option>
+                      <option>Embutidos</option>
+                      <option>Frutas</option>
+                      <option>Verduras</option>
+                    </select>
+                  </div>
+                </div>
               </div>
-            </div>
-
-            <!-- Fecha -->
-            <div class="col-12 col-sm-6 col-md-3">
-              <div class="form-group">
-                <label for="inputDate" class="mb-0"><small> Fecha de vencimiento</small></label>
-                <input type="input" class="form-control" id="inputDate">
+              
+              <!-- Fecha -->
+              <div class="row mb-3 mb-sm-4">
+                <div class="col-12 col-md-3 text-color-app mt-2 text-left text-md-right">
+                  <i class="far fa-calendar"></i> Vencimiento
+                </div>
+                <div class="col-12 col-md-8">
+                  <div class="form-group">
+                    <input type="input" class="form-control" id="inputDate">
+                  </div>
+                </div>
               </div>
-            </div>
 
-            <div class="col-12 col-sm-6 col-md-3">
-              <label for="inputDate" class="mb-0"> &nbsp; </label>
-              <button type="submit" class="btn btn-block bg-color-app text-white weight-600">Guardar</button>
+              <div class="row">
+                <div class="col-12 col-md-4 offset offset-md-4">
+                  <button type="submit" class="btn btn-block bg-color-app text-white weight-600">Guardar <i class="fas fa-check"></i></button>
+                </div>
+              </div>
             </div>
           </div>
         </form>
       </section>
 
-      <section class="container-fluid">
-        <div class="row px-2 w-100">
-          <div class="col-12 col-md-4 mx-0 mt-2 px-2">
-            <div class="bg-light rounded">1</div>
-          </div>
-          <div class="col-12 col-md-4 mx-0 mt-2 px-2">
-            <div class="bg-light rounded">1</div>
-          </div>
-          <div class="col-12 col-md-4 mx-0 mt-2 px-2">
-            <div class="bg-light rounded">1</div>
-          </div>
-        </div>
-      </section>
+      
     </div>
     <!-- /#page-content-wrapper -->
 
@@ -154,8 +170,8 @@
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
 
-  <!-- Menu Toggle Script -->
-  <!-- <script src="js/app.js"></script> -->
+  <script src="js/app.js"></script>
+  <!-- Menu -->
   <script>
     $("#menu-toggle").click(function(e) {
       e.preventDefault();
