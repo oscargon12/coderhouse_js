@@ -1,4 +1,12 @@
 
+// El proyecto tiene dos fases:
+// Entrada: El usuario registra alimentos y su fecha de vencimiento
+// Salida: La app alerta alimentos a vencer y genera recetas con estos productos
+
+// === Ejercicio 04 ===
+// Incorporar al menos un prompt para pedir un dato 
+// mostrarlo mediante alert, realizando alguna operación.
+// Utilizar funciones para realizar esas operaciones
 
 // function pedirIngrediente() {
 //   // let ingrediente = prompt('Ingresa el nuevo ingrediente');
@@ -23,19 +31,21 @@
 // pedirIngrediente()
 
 
-// Crear al menos un objeto para controlar el funcionamiento de tu simulador
-// Incorporarle sus propiedades y su constructor.
+
+// === Ejercicio 05 ===
+
+// Crear al menos un objeto
+// Incorporarle sus propiedades y su constructor
 // Invocar a ese objeto en algún momento donde el usuario realice alguna acción
 
-function Producto(categoria, nombre, vencimiento) {
+function Ingrediente(categoria, nombre, vencimiento,) {
   this.categoria = categoria;
   this.nombre = nombre;
   this.vencimiento = vencimiento;
 
-
   this.mostrarInfo = function () {
-    console.log(`Èl producto ${this.nombre} vence el ${vencimiento}`)
-  }
+    console.log(`El producto ${this.nombre} vence el ${this.vencimiento}`);
+  };
 }
 
 //Mi proyecto requiere pedir datos al usuario
@@ -44,5 +54,17 @@ let nombre = prompt('Ingresa el nombre del producto');
 let vencimiento = prompt('Ingresa la fecha de vencimiento');
 
 //Se instancia el objeto
-let ingrediente1 = new Producto(categoria, nombre, vencimiento);
+let ingrediente1 = new Ingrediente(categoria, nombre, vencimiento);
 console.log(ingrediente1)
+
+
+// Constructora 2
+function Receta(nombre, ingredientes, preparacion,) {
+  this.nombre = nombre;
+  this.ingredientes = ingredientes;
+  this.preparacion = preparacion;
+
+  this.mostrarReceta = function () {
+    console.log(`Con los ingredientes ${this.ingredientes} preparaste la receta ${this.nombre}`);
+  };
+}

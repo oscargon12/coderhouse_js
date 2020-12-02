@@ -33,8 +33,8 @@ function Cliente(nombre, altura, peso){
 
     //Mètodos en constructora
     this.saludar = function (){
-        console.log(`Hola, mi nombre es ${this.nombre}`)
-    }
+        console.log(`Hola, mi nombre es ${this.nombre}`);
+    };
     // También recibe arrow functions
 
     // Se llama así cliente1.saludar()
