@@ -48,14 +48,14 @@ function Ingrediente(categoria, nombre, vencimiento,) {
   };
 }
 
-//Mi proyecto requiere pedir datos al usuario
+/* //Mi proyecto requiere pedir datos al usuario
 let categoria = prompt('Ingresa la categoria del producto');
 let nombre = prompt('Ingresa el nombre del producto');
 let vencimiento = prompt('Ingresa la fecha de vencimiento');
 
 //Se instancia el objeto
 let ingrediente1 = new Ingrediente(categoria, nombre, vencimiento);
-console.log(ingrediente1)
+console.log(ingrediente1) */
 
 
 // Constructora 2
@@ -68,3 +68,11 @@ function Receta(nombre, ingredientes, preparacion,) {
     console.log(`Con los ingredientes ${this.ingredientes} preparaste la receta ${this.nombre}`);
   };
 }
+
+let receta2 = {
+  nombreReceta: 'lasagna',
+  ingre: ['pasta', 'bolognesa'],
+  prepara: 'horno',
+}
+
+console.log(receta2);
