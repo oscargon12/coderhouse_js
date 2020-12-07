@@ -1,141 +1,109 @@
 body {
-  background-color: #4158D0;
-  background-image: linear-gradient(135deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
-  background-size: cover;
-  color: white;
-  font-family: 'Poppins', sans-serif;
-  height: 100vh;
+  background: white;
   margin: 0;
-  padding-left: 200px;
+  font-family: "Poppins", sans-serif;
+  color: #fff;
+  padding-left: 240px;
+}
+
+.text-color-app {
+  color: #f93c64;
+}
+
+.color800 {
+  color: #424242;
+}
+
+.bg-color-app {
+  background-color: #f93c64;
+}
+
+.weight-600 {
+  font-weight: 600;
 }
 
 main {
-  height: 100vh;
   position: relative;
+  height: 100vh;
 }
 
-.header-app {
-  background-color: none;
-  height: 40px;
-  position: fixed;
-  top: 0;
-  width: 100%;
+main .helper {
+  background: rgba(0, 0, 0, 0.2);
+  color: #ffea92;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate3d(-50%, -50%, 0);
+          transform: translate3d(-50%, -50%, 0);
+  padding: 1.2em 2em;
+  text-align: center;
+  border-radius: 20px;
+  font-size: 2em;
+  font-weight: bold;
+}
+
+main .helper span {
+  color: rgba(0, 0, 0, 0.2);
+  font-size: 0.4em;
+  display: block;
 }
 
 .menu {
-  background: rgba(255, 255, 255, 0.1);
+  background: #eeeeee;
   height: 100vh;
-  left: 0;
-  margin-top: 0;
-  outline: none;
+  width: 240px;
   position: fixed;
   top: 0;
-  width: 200px;
+  left: 0;
   z-index: 5;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  outline: none;
 }
 
 .menu .avatar {
-  background: none;
-  height: 40px;
-  margin-top: 0;
-  padding: 10px 0 0 0;
+  padding: 0.5em;
   text-align: center;
-}
-
-.menu .avatar h3 {
-  color: white;
-  font-weight: 700;
-  margin-top: 0;
 }
 
 .menu ul {
   list-style: none;
   padding: 0.5em 0;
-  margin: auto 0;
+  margin: 0;
 }
 
 .menu ul li {
-  color: white;
-  cursor: pointer;
-  font-size: 15px;
-  font-weight: 300;
-  margin: 0 0 5px 0;
-  padding: 0.5em 1em 0.5em 2.4em;
+  padding: 0.5em 1em 0.5em 2em;
+  font-size: 0.95em;
+  font-weight: regular;
+  background-repeat: no-repeat;
+  background-position: left 15px center;
+  background-size: auto 20px;
   -webkit-transition: all 0.15s linear;
   transition: all 0.15s linear;
+  cursor: pointer;
 }
 
-.menu ul li i {
-  color: white;
-  margin-right: 7px;
-  text-align: right;
+.menu ul li a:hover {
+  color: #f93c64;
+  text-decoration: none;
 }
 
 .menu ul li:hover {
   background-color: rgba(0, 0, 0, 0.1);
-  color: #EF5350;
 }
 
 .menu ul li:focus {
   outline: none;
 }
 
-.task-list {
-  margin-top: 80px;
-  padding: 0 50px;
-  display: -ms-grid;
-  display: grid;
-  grid-gap: 2em;
-}
-
-.main-section {
-  margin-top: 80px;
-  padding: 0 20px;
-  display: -ms-grid;
-  display: grid;
-  /* Define Auto Row size */
-  grid-auto-rows: 100px;
-  /*Define our columns */
-  -ms-grid-columns: (minmax(300px, 1fr))[auto-fill];
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  grid-gap: 1em;
-}
-
-article {
-  border-radius: 5px;
-  padding: 20px;
-  color: #fff;
-}
-
-article {
-  background: rgba(255, 255, 255, 0.1);
-  border: solid 0.5px rgba(255, 255, 255, 0.3);
-  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.2);
-          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.2);
-  -webkit-transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-}
-
-article:hover {
-  -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.2);
-          box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.2);
-}
-
 @media screen and (max-width: 900px) and (min-width: 400px) {
   body {
-    padding-left: 70px;
+    padding-left: 90px;
   }
   .menu {
-    width: 70px;
+    width: 90px;
   }
   .menu .avatar {
+    padding: 0.5em;
     position: relative;
   }
   .menu .avatar img {
@@ -162,6 +130,8 @@ article:hover {
   }
   .menu ul li {
     height: 60px;
+    background-position: center center;
+    background-size: 30px auto;
     position: relative;
   }
   .menu ul li span {
@@ -178,7 +148,7 @@ article:hover {
     transition: all 0.15s ease-in-out;
   }
   .menu ul li span:before {
-    content: '';
+    content: "";
     width: 0;
     height: 0;
     position: absolute;
@@ -215,11 +185,11 @@ article:hover {
     height: 40px;
     position: absolute;
     left: 100%;
-    background: #EF5350;
+    background: #f93c64;
   }
   .menu .smartphone-menu-trigger:before,
   .menu .smartphone-menu-trigger:after {
-    content: '';
+    content: "";
     width: 50%;
     height: 2px;
     background: #fff;
@@ -236,8 +206,8 @@ article:hover {
             transform: translate3d(-50%, -50%, 0);
   }
   .menu ul li {
-    padding: 1em 1em 1em 2em;
-    font-size: 15px;
+    padding: 1em 1em 1em 3em;
+    font-size: 0.8em;
   }
   .menu:focus {
     -webkit-transform: translate3d(0, 0, 0);
