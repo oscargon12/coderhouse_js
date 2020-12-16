@@ -103,3 +103,7 @@ let receta2 = {
 }
 
 console.log(receta2);
+
+// Ejercicio clase 8
+const elemento = document.querySelector('#foodList')
+console.log(elemento);
