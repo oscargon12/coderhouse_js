@@ -3,57 +3,35 @@
 // Entrada: El usuario registra alimentos y su fecha de vencimiento
 // Salida: La app alerta alimentos a vencer y genera recetas con estos productos
 
+// === Ejercicio 04 ===
+// Incorporar al menos un prompt para pedir un dato 
+// mostrarlo mediante alert, realizando alguna operación.
+// Utilizar funciones para realizar esas operaciones
 
-// Defino las opciones de ingredientes para cada categoría con arrays
-let ingredientes_1 = ['-', 'Avena', 'Crema de leche', 'Kumis', 'Leche', 'Leche condensada', 'Arequipe', 'Yogurt', 'Queso']
-let ingredientes_2 = ['-', 'Carne de res', 'Pollo', 'Carne de cerdo', 'Pescado', 'Pescado robalo']
-let ingredientes_3 = ['-', 'Arroz', 'Lentejas', 'Fríjoles', 'Alverja seca', 'Garbanzos', 'Caraotas']
-let ingredientes_4 = ['-', 'Jamón', 'Jamón de pavo', 'Jamón de cerdo', 'Salchichas', 'Salchichón']
-let ingredientes_5 = ['-', 'Atún', 'Salchcichas', 'Fríjoles enlatados', 'Maíz', 'Duraznos', 'Liches', 'Piña']
-let ingredientes_6 = ['-', 'Manzanas', 'Uvas', 'Peras', 'Naranjas', 'Sandía', 'Duraznos', 'Plátanos', 'Papaya']
-let ingredientes_7 = ['-', 'Alverja', 'Zanahoria', 'Tomate', 'Cebolla larga', 'Cebolla cabezona', 'Pimentón', 'Brocoli']
-let ingredientes_8 = ['-', 'Azucar', 'Sal', 'Salsa de tomate', 'Mayonesa', 'Mostaza', 'Vinagreta']
+/* function pedirIngrediente() {
+  let ingrediente = prompt('Ingresa el nuevo ingrediente');
+  let fecha = prompt('Ingresa la fecha de vencimiento');
+  let hora = prompt('Del 1 al 4 elije una hora del día');
 
+// Esto me puede servir para la generación de recetas
 
-//Construyo un array con los arrays de ingredientes, para agruparlo y llamarlo más fácil
-  let ingredientesTodos = [
-    [],
-    ingredientes_1,
-    ingredientes_2,
-    ingredientes_3,
-    ingredientes_4,
-    ingredientes_5,
-    ingredientes_6,
-    ingredientes_7,
-    ingredientes_8,
-  ];
+  if (hora == 1) {
+    tipoComida = 'desayuno';
+  } else if (hora == 2) {
+    tipoComida = 'almuerzo';
+  } else if (hora == 3) {
+    tipoComida = 'postre';
+  } else if (hora == 4) {
+    tipoComida = 'comida';
+  } else {
+    tipoComida = 'mecato';
+  }
 
-  function cambia_categoria(){ 
-   	//tomo el valor (selectedIndex) del select de la categoria elegida que está dentro de foodSelect
-   	let categoria = document.foodSelect.categoria[document.foodSelect.categoria.selectedIndex].value 
-   	// Consulto si la categoria está definida, osea != del value 0
-   	if (categoria != 0) { 
-      	// Si categoria está definida, entonces coloco las opciones, que están dentro de esta
-      	// Selecciono el array de la categoria seleccionada
-        mis_ingredientes = ingredientesTodos[categoria]
-        
-      	// calculo el numero de ingredientes 
-        num_ingredientes = mis_ingredientes.length 
-        
-      	// Marco el número de ingredientes en las opciones del select para que se impriman en el html
-        document.foodSelect.ingrediente.length = num_ingredientes 
-        
-      	// En cada categoria del array, introduzco sus opciones en el select 
-      	for(i=0;i<num_ingredientes;i++){ 
-         	document.foodSelect.ingrediente.options[i].value=mis_ingredientes[i] // cambio el valor del value
-         	document.foodSelect.ingrediente.options[i].text=mis_ingredientes[i] // cambio el valor del texto
-      	}	
-   	}
-   	//marco como seleccionada la opción primera de categoria 
-   	document.foodSelect.ingrediente.options[0].selected = true 
+  alert(`${ingrediente} se va a vencer en ${fecha} quieres preparar ${tipoComida}`);
 }
-//Test
 
+pedirIngrediente()
+ */
 
 
 // === Ejercicio 05 ===
