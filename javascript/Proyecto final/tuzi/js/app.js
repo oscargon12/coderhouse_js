@@ -3,19 +3,9 @@
 // Entrada: El usuario registra alimentos y su fecha de vencimiento
 // Salida: La app alerta alimentos a vencer y genera recetas con estos productos
 
+// == Recogiendo datos de alimentos ==
 
-// Defino las opciones de ingredientes para cada categoría con arrays
-let ingredientes_1 = ['-', 'Avena', 'Crema de leche', 'Kumis', 'Leche', 'Leche condensada', 'Arequipe', 'Yogurt', 'Queso']
-let ingredientes_2 = ['-', 'Carne de res', 'Pollo', 'Carne de cerdo', 'Pescado', 'Pescado robalo']
-let ingredientes_3 = ['-', 'Arroz', 'Lentejas', 'Fríjoles', 'Alverja seca', 'Garbanzos', 'Caraotas']
-let ingredientes_4 = ['-', 'Jamón', 'Jamón de pavo', 'Jamón de cerdo', 'Salchichas', 'Salchichón']
-let ingredientes_5 = ['-', 'Atún', 'Salchcichas', 'Fríjoles enlatados', 'Maíz', 'Duraznos', 'Liches', 'Piña']
-let ingredientes_6 = ['-', 'Manzanas', 'Uvas', 'Peras', 'Naranjas', 'Sandía', 'Duraznos', 'Plátanos', 'Papaya']
-let ingredientes_7 = ['-', 'Alverja', 'Zanahoria', 'Tomate', 'Cebolla larga', 'Cebolla cabezona', 'Pimentón', 'Brocoli']
-let ingredientes_8 = ['-', 'Azucar', 'Sal', 'Salsa de tomate', 'Mayonesa', 'Mostaza', 'Vinagreta']
-
-
-//Construyo un array con los arrays de ingredientes, para agruparlo y llamarlo más fácil
+//Construyo un array llamando los arrays de ingredientes, para agruparlos e invocar el grupo más fácil
   let ingredientesTodos = [
     [],
     ingredientes_1,
@@ -28,10 +18,11 @@ let ingredientes_8 = ['-', 'Azucar', 'Sal', 'Salsa de tomate', 'Mayonesa', 'Most
     ingredientes_8,
   ];
 
+  // == Funcion para que los ingredientes respondan a la categoría ==
   function cambia_categoria(){ 
-   	//tomo el valor (selectedIndex) del select de la categoria elegida que está dentro de foodSelect
+   	//tomo el valor (selectedIndex) del select de la categoria elegida, que está dentro de foodSelect
    	let categoria = document.foodSelect.categoria[document.foodSelect.categoria.selectedIndex].value 
-   	// Consulto si la categoria está definida, osea != del value 0
+   	// Consulto si la categoria tiene un valor, osea != del value 0
    	if (categoria != 0) { 
       	// Si categoria está definida, entonces coloco las opciones, que están dentro de esta
       	// Selecciono el array de la categoria seleccionada
@@ -43,27 +34,68 @@ let ingredientes_8 = ['-', 'Azucar', 'Sal', 'Salsa de tomate', 'Mayonesa', 'Most
       	// Marco el número de ingredientes en las opciones del select para que se impriman en el html
         document.foodSelect.ingrediente.length = num_ingredientes 
         
-      	// En cada categoria del array, introduzco sus opciones en el select 
+      	// En cada categoria del array, imprimo sus opciones en el select 
       	for(i=0;i<num_ingredientes;i++){ 
          	document.foodSelect.ingrediente.options[i].value=mis_ingredientes[i] // cambio el valor del value
-         	document.foodSelect.ingrediente.options[i].text=mis_ingredientes[i] // cambio el valor del texto
-      	}	
-   	}
+           document.foodSelect.ingrediente.options[i].text=mis_ingredientes[i] // cambio el valor del texto
+        }	
+    }
    	//marco como seleccionada la opción primera de categoria 
    	document.foodSelect.ingrediente.options[0].selected = true 
-}
-//Test
+    }
 
+    // == Obteniendo datos del formulario ==
 
+    function obtenerDatos(){
 
-// === Ejercicio 05 ===
+    // 1. Obteniendo el texto del primer select
+    const cbxCategorias = document.querySelector('#cbxCategorias');
 
-// Crear al menos un objeto
-// Incorporarle sus propiedades y su constructor
-// Invocar a ese objeto en algún momento donde el usuario realice alguna acción
+    cbxCategorias.addEventListener('change', (e) => {
+      let cbxCategorias = document.querySelector('#cbxCategorias');
+      let producto = cbxCategorias.options[cbxCategorias.selectedIndex].text;
 
-// creo uno fijo para pruebas y uno que pide datos al usuario
+      document.querySelector('#lblProducto').innerText = `Vas a registrar la categoría ${producto}`;
+      console.log (producto);
+    });
 
+    // 2. Obteniendo el texto del segundo select
+    const cbxProductos = document.querySelector('#cbxProductos');
+
+    cbxProductos.addEventListener('change', (e) => {
+      let cbxProductos = document.querySelector('#cbxProductos');
+      let ingreName = cbxProductos.options[cbxProductos.selectedIndex].text;
+
+      document.querySelector('#lblIngrediente').innerText = `Vas a registrar el alimento ${ingreName}`;
+      console.log (ingreName);
+    });
+
+    // Ya que hacen lo mismo 👆, creo que puedo meterlas en una misma funcion
+    // Los parametros serían id nombre de la funcion y de la variable
+
+    // 3. obteniendo fecha
+    const inputFecha = document.querySelector('#inputFecha');
+
+    inputFecha.addEventListener('change', (e) => {
+      let inputFecha = document.querySelector('#inputFecha');
+      let fechaSel = inputFecha.value;
+
+      document.querySelector('#lblFecha').innerText = `Seleccionaste la fecha ${fechaSel}`;
+      console.log (fechaSel);
+
+    });
+
+    }
+
+    obtenerDatos()
+    
+
+//EL proyecto requiere pedir datos de entrada al usuario
+let categoria = 'hola';
+let nombre = 'Queso';
+let vencimiento = document.getElementById('inputDate').value;
+
+// Crendo el objeto con función constructora
 function IngredienteUsuario(categoria, nombre, vencimiento,) {
   this.categoria = categoria;
   this.nombre = nombre;
@@ -73,11 +105,6 @@ function IngredienteUsuario(categoria, nombre, vencimiento,) {
     console.log(`El producto ${this.nombre} vence el ${this.vencimiento}`);
   };
 }
-
-//EL proyecto requiere pedir datos de entrada al usuario
-let categoria = prompt('Ingresa la categoria del alimento a registrar (Ejem: lacteos, enlatados)');
-let nombre = prompt('Ingresa el nombre del alimento a registrar');
-let vencimiento = prompt('Ingresa la fecha de vencimiento (aaaa.mm)');
 
 //Se instancia el objeto
 let ingrediente1 = new IngredienteUsuario(categoria, nombre, vencimiento);
