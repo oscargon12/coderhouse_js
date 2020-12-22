@@ -52,7 +52,7 @@
           </section>
 
           <section class="container-fluid mt-5">
-            <form name="foodSelect">
+            <form name="foodSelect" id="foodForm">
               <div class="form-row">
                 <div class="col-12">
                   <div class="row mb-0 mb-sm-3">
@@ -75,7 +75,7 @@
                           <option value="8">Adiciones</option>
                         </select>
                       </div>
-                      <small id="lblProducto" class="text-muted"></span>
+                      <!-- <small id="lblProducto" class="text-muted"></span> -->
 
                     </div>
                   </div>
@@ -92,7 +92,7 @@
                           <option value="-"></option>
                         </select>
                       </div>
-                      <span id="lblIngrediente" class="text-muted"></span>
+                      <!-- <span id="lblIngrediente" class="text-muted"></span> -->
 
                     </div>
                   </div>
@@ -106,7 +106,7 @@
                       <div class="form-group">
                         <input type="date" class="form-control" id="inputFecha">
                       </div>
-                      <span id="lblFecha" class="text-muted"></span>
+                      <!-- <span id="lblFecha" class="text-muted"></span> -->
                     </div>
                   </div>
     
@@ -114,13 +114,22 @@
                     <div class="col-12 col-md-4 offset offset-md-4">
                       <button type="submit" class="btn btn-block bg-color-app text-white weight-600" id="obtenerDatos" >Guardar <i class="fas fa-check"></i></button>
                     </div>
-
                   </div>
                 </div>
               </div>
             </form>
 
-            
+          </section>
+
+          <section class="container mt-4">
+            <div class="alert alert-success" id="showHide" style="display: none;" role="alert">
+              <h4 class="alert-heading">Listo!</h4>
+              <div id="lblIngrediente"></div>
+              <div id="lblProducto"></div>
+              <div id="lblFecha"></div>
+              <hr>
+              <p class="mb-0">Ahora podrás usarlo en una receta</p>
+            </div>
           </section>
     </main>
 

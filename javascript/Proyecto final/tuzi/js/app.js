@@ -49,51 +49,74 @@
     function obtenerDatos(){
 
     // 1. Obteniendo el texto del primer select
+
+    // Apunto al combo de categorias y le genero una variable
     const cbxCategorias = document.querySelector('#cbxCategorias');
 
+    // A esa variable le agrego el eventListener (e)Funcion manejadora
     cbxCategorias.addEventListener('change', (e) => {
       let cbxCategorias = document.querySelector('#cbxCategorias');
       let producto = cbxCategorias.options[cbxCategorias.selectedIndex].text;
 
-      document.querySelector('#lblProducto').innerText = `Vas a registrar la categoría ${producto}`;
+      document.querySelector('#lblProducto').innerText = `De la categoría: ${producto}`;
       console.log (producto);
     });
 
     // 2. Obteniendo el texto del segundo select
     const cbxProductos = document.querySelector('#cbxProductos');
+    let ingreName;
 
     cbxProductos.addEventListener('change', (e) => {
       let cbxProductos = document.querySelector('#cbxProductos');
-      let ingreName = cbxProductos.options[cbxProductos.selectedIndex].text;
+      ingreName = cbxProductos.options[cbxProductos.selectedIndex].text;
 
-      document.querySelector('#lblIngrediente').innerText = `Vas a registrar el alimento ${ingreName}`;
+      document.querySelector('#lblIngrediente').innerText = `Registraste el alimento: ${ingreName}`;
       console.log (ingreName);
     });
-
+    
     // Ya que hacen lo mismo 👆, creo que puedo meterlas en una misma funcion
     // Los parametros serían id nombre de la funcion y de la variable
 
     // 3. obteniendo fecha
     const inputFecha = document.querySelector('#inputFecha');
 
-    inputFecha.addEventListener('change', (e) => {
+    inputFecha.addEventListener('keyup', (e) => {
       let inputFecha = document.querySelector('#inputFecha');
       let fechaSel = inputFecha.value;
 
-      document.querySelector('#lblFecha').innerText = `Seleccionaste la fecha ${fechaSel}`;
+      document.querySelector('#lblFecha').innerText = `Que tiene fecha de vencimiento en:  ${fechaSel}`;
       console.log (fechaSel);
-
     });
 
+    
+    // mostrando datos con botón guardar
+    document.querySelector("#obtenerDatos").onclick = saluda;
+
+    function saluda(e) {
+    document.querySelector('#showHide').style.display = "block";
+    e.preventDefault();
     }
+  
+    // mostrando datos con tecla enter
+    document.querySelector('body').addEventListener("keyup", mostrarRegistro);
+    
+    function mostrarRegistro(e) {
+    if (e.keyCode === 13) {
+      document.querySelector('#showHide').style.display = "block";
+      e.preventDefault();
+    }
+}
+
+  }
 
     obtenerDatos()
-    
+
+
 
 //EL proyecto requiere pedir datos de entrada al usuario
 let categoria = 'hola';
 let nombre = 'Queso';
-let vencimiento = document.getElementById('inputDate').value;
+let vencimiento = '21/12/2020';
 
 // Crendo el objeto con función constructora
 function IngredienteUsuario(categoria, nombre, vencimiento,) {
