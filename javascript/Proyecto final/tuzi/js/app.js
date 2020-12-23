@@ -34,7 +34,7 @@
       	// Marco el número de ingredientes en las opciones del select para que se impriman en el html
         document.foodSelect.ingrediente.length = num_ingredientes 
         
-      	// En cada categoria del array, imprimo sus opciones en el select 
+      	// Recorro cada array de categorías, e imprimo sus opciones en el select 
       	for(i=0;i<num_ingredientes;i++){ 
          	document.foodSelect.ingrediente.options[i].value=mis_ingredientes[i] // cambio el valor del value
            document.foodSelect.ingrediente.options[i].text=mis_ingredientes[i] // cambio el valor del texto
@@ -45,7 +45,6 @@
     }
 
     // == Obteniendo datos del formulario ==
-
     function obtenerDatos(){
 
     // 1. Obteniendo el texto del primer select
@@ -63,19 +62,21 @@
     });
 
     // 2. Obteniendo el texto del segundo select
-    const cbxProductos = document.querySelector('#cbxProductos');
-    let ingreName;
+    var ingreName;
 
-    cbxProductos.addEventListener('change', (e) => {
+    cbxProductos.addEventListener('change', pedirNombre);
+    
+    function pedirNombre (e){
       let cbxProductos = document.querySelector('#cbxProductos');
       ingreName = cbxProductos.options[cbxProductos.selectedIndex].text;
 
       document.querySelector('#lblIngrediente').innerText = `Registraste el alimento: ${ingreName}`;
       console.log (ingreName);
-    });
-    
+
+    };
+
     // Ya que hacen lo mismo 👆, creo que puedo meterlas en una misma funcion
-    // Los parametros serían id nombre de la funcion y de la variable
+    // Los parametros serían id del combo, nombre de la funcion y de la variable
 
     // 3. obteniendo fecha
     const inputFecha = document.querySelector('#inputFecha');
@@ -86,13 +87,15 @@
 
       document.querySelector('#lblFecha').innerText = `Que tiene fecha de vencimiento en:  ${fechaSel}`;
       console.log (fechaSel);
+
+      localStorage.setItem('fecha', fechaSel);
     });
 
     
     // mostrando datos con botón guardar
-    document.querySelector("#obtenerDatos").onclick = saluda;
+    document.querySelector("#obtenerDatos").onclick = registroClick;
 
-    function saluda(e) {
+    function registroClick(e) {
     document.querySelector('#showHide').style.display = "block";
     e.preventDefault();
     }
@@ -104,19 +107,21 @@
     if (e.keyCode === 13) {
       document.querySelector('#showHide').style.display = "block";
       e.preventDefault();
+      }
     }
-}
-
+    
   }
-
-    obtenerDatos()
-
-
+  obtenerDatos()
 
 //EL proyecto requiere pedir datos de entrada al usuario
-let categoria = 'hola';
-let nombre = 'Queso';
-let vencimiento = '21/12/2020';
+/* let categoria = 'lacteos';
+let nombre = 'leche';
+let vencimiento = '2021-12-22'; */
+let categoria = document.querySelector('#lblProducto');
+let nombre = document.querySelector('#lblIngrediente').innerText;
+let vencimiento = localStorage.getItem(fecha);
+
+console.log (`El producto es ${nombre.innerText}`);
 
 // Crendo el objeto con función constructora
 function IngredienteUsuario(categoria, nombre, vencimiento,) {
