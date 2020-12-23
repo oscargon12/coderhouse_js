@@ -59,6 +59,8 @@
 
       document.querySelector('#lblProducto').innerText = `De la categoría: ${producto}`;
       console.log (producto);
+
+      localStorage.setItem('categoria', producto);
     });
 
     // 2. Obteniendo el texto del segundo select
@@ -73,6 +75,7 @@
       document.querySelector('#lblIngrediente').innerText = `Registraste el alimento: ${ingreName}`;
       console.log (ingreName);
 
+      localStorage.setItem('alimento', ingreName);
     };
 
     // Ya que hacen lo mismo 👆, creo que puedo meterlas en una misma funcion
@@ -114,16 +117,14 @@
   obtenerDatos()
 
 //EL proyecto requiere pedir datos de entrada al usuario
-/* let categoria = 'lacteos';
+let categoria = 'lacteos';
 let nombre = 'leche';
-let vencimiento = '2021-12-22'; */
-let categoria = document.querySelector('#lblProducto');
-let nombre = document.querySelector('#lblIngrediente').innerText;
-let vencimiento = localStorage.getItem(fecha);
+let vencimiento = '2021-12-22';
+/* let categoria = localStorage.getItem(producto);
+let nombre = localStorage.getItem(ingreName);
+let vencimiento = localStorage.getItem(fechaSel); */
 
-console.log (`El producto es ${nombre.innerText}`);
-
-// Crendo el objeto con función constructora
+// Creando el objeto con función constructora
 function IngredienteUsuario(categoria, nombre, vencimiento,) {
   this.categoria = categoria;
   this.nombre = nombre;
@@ -186,7 +187,7 @@ console.log(receta2);
 
 // == Modificando el nombre de una categoría de alimentos ==
 // Selecciono un elemento de la lista de categorías 👇 esta es la clase del html
-const categoriaItem = document.querySelector('.categoryItem')
+/* const categoriaItem = document.querySelector('.categoryItem')
 console.log(categoriaItem.textContent);
 
 //Defino al elemento padre de las categorias
@@ -201,7 +202,7 @@ elementoCateg.textContent = categoria;
 // Apunto donde va a ir el elemento creado
 padreCateg.appendChild(elementoCateg);
 // Dentro del padre de las categorias
-console.log(elementoCateg);
+console.log(elementoCateg); */
 
 
 // == Creando comidas dentro de las categorías ==
@@ -215,7 +216,7 @@ console.log(padreLista);
 
 // Defino el nuevo elemento a crear
 const elementoLista = document.createElement('label');
-elementoLista.textContent = nombre;
+elementoLista.textContent = 'hola';
 
 // Apunto donde va a ir el elemento
 padreLista.appendChild(elementoLista)
