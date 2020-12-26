@@ -64,7 +64,7 @@
     });
 
     // 2. Obteniendo el texto del segundo select
-    var ingreName;
+    let ingreName;
 
     cbxProductos.addEventListener('change', pedirNombre);
     
@@ -73,6 +73,8 @@
       ingreName = cbxProductos.options[cbxProductos.selectedIndex].text;
 
       document.querySelector('#lblIngrediente').innerText = `Registraste el alimento: ${ingreName}`;
+      // imprimiendo el dato del usuario en el listado
+      document.querySelector('#lbProducto').innerText = ingreName;
       console.log (ingreName);
 
       localStorage.setItem('alimento', ingreName);
@@ -89,6 +91,8 @@
       let fechaSel = inputFecha.value;
 
       document.querySelector('#lblFecha').innerText = `Que tiene fecha de vencimiento en:  ${fechaSel}`;
+      // imprimiendo el dato del usuario en el listado
+      document.querySelector('#lbFecha').innerText = fechaSel;
       console.log (fechaSel);
 
       localStorage.setItem('fecha', fechaSel);
@@ -114,15 +118,21 @@
     }
     
   }
-  obtenerDatos()
 
-//EL proyecto requiere pedir datos de entrada al usuario
-let categoria = 'lacteos';
+  obtenerDatos()
+  
+// Con los datos capturados, puedo almacenarlos en la "despensa"
+// Datos quemados (test)
+/* let categoria = 'lacteos';
 let nombre = 'leche';
-let vencimiento = '2021-12-22';
-/* let categoria = localStorage.getItem(producto);
-let nombre = localStorage.getItem(ingreName);
-let vencimiento = localStorage.getItem(fechaSel); */
+let vencimiento = '2021-12-22'; */
+
+let brName = `producto prueba ${ingredientes_1[5]}`;
+
+// Datos dinámicos
+let categoria = 'lacteos';
+let nombre = brName;
+let vencimiento = '2020-12-26';
 
 // Creando el objeto con función constructora
 function IngredienteUsuario(categoria, nombre, vencimiento,) {
@@ -130,9 +140,6 @@ function IngredienteUsuario(categoria, nombre, vencimiento,) {
   this.nombre = nombre;
   this.vencimiento = vencimiento;
 
-  this.mostrarInfo = function () {
-    console.log(`El producto ${this.nombre} vence el ${this.vencimiento}`);
-  };
 }
 
 //Se instancia el objeto
@@ -144,9 +151,6 @@ function Ingrediente(categoria, nombre, vencimiento,) {
   this.nombre = nombre;
   this.vencimiento = vencimiento;
 
-  this.mostrarInfo = function () {
-    console.log(`El producto ${this.nombre} vence el ${this.vencimiento}`);
-  };
 }
 // Instanciando...
 let ingrediente2 = new Ingrediente('Lacteos', 'Leche', '08-12-2020');
@@ -185,26 +189,6 @@ console.log(receta2);
 
 // ==== Ejercicio clase 8 ====
 
-// == Modificando el nombre de una categoría de alimentos ==
-// Selecciono un elemento de la lista de categorías 👇 esta es la clase del html
-/* const categoriaItem = document.querySelector('.categoryItem')
-console.log(categoriaItem.textContent);
-
-//Defino al elemento padre de las categorias
-const padreCateg = categoriaItem.parentElement;
-console.log(padreCateg);
-
-// Defino el nuevo elemento a crear
-const elementoCateg = document.querySelector('button');
-elementoCateg.textContent = categoria;
-// la categoría es dinámica traída 👆 desde el prompt
-
-// Apunto donde va a ir el elemento creado
-padreCateg.appendChild(elementoCateg);
-// Dentro del padre de las categorias
-console.log(elementoCateg); */
-
-
 // == Creando comidas dentro de las categorías ==
 // Selecciono un elemento de la lista de alimentos
 const elemento = document.querySelector('.list-group-item')
@@ -215,35 +199,34 @@ const padreLista = elemento.parentElement;
 console.log(padreLista);
 
 // Defino el nuevo elemento a crear
-const elementoLista = document.createElement('label');
-elementoLista.textContent = 'hola';
+const elementoLista = document.createElement('li');
+elementoLista.innerHTML = `
+  <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+  <label class="form-check-label" for="defaultCheck1">
+    ${nombre}
+  </label>
+  <span class="badge badge-danger badge-pill">${vencimiento}</span>
+`
+elementoLista.classList.add('list-group-item')
+elementoLista.classList.add('d-flex')
+elementoLista.classList.add('justify-content-between')
+elementoLista.classList.add('align-items-center')
+elementoLista.classList.add('color800')
+elementoLista.classList.add('border-0')
 
 // Apunto donde va a ir el elemento
 padreLista.appendChild(elementoLista)
 
-// Defino las clases css de ese elemento nuevo
-elementoLista.className = ('color800') 
-padreLista.classList.add('nueva-clase')
-elementoLista.style.marginRight = '1em'
-
 console.log(elementoLista);
 
-//Creando la fecha de vencimiento
-const alimentoFecha = document.createElement('span');
-alimentoFecha.textContent = vencimiento;
-
-alimentoFecha.className = 'badge' 
-
-// Apunto donde va a ir la fecha
-padreLista.appendChild(alimentoFecha)
 
 // Modificando estilos seún fecha
-if (vencimiento <= 2020.12){
+/* if (vencimiento <= 2020.12){
   console.log('Ya se pasó la fecha de consumo')
   alimentoFecha.className = 'bg-danger' 
 }else {
   console.log('Puedes consumir el producto')
   alimentoFecha.className = 'bg-success' 
-}
+} */
 
 // Para poder meter todo el li ver la línea 52 del workshop

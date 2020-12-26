@@ -79,7 +79,7 @@ const parrafo = document.createElement('p');
 parrafo.textContent = 'Nuevo parrafo';
 
 // divPadre.appendChild(parrafo)
-// El appedChild inserta cosas de primeras
+// El appendChild inserta cosas de primeras
 
 divPadre.insertBefore(parrafo, encabezado)
 
