@@ -16,9 +16,7 @@ $(':input') // Selecciono tds los inputs, textarea, selct y botones
 $('input') // Selecciono tds los inputs, menos textarea, selct y botones
 
 // Metodos
-$('elemento').hide(); // == display: none;
-$('elemento').show(); // == display: block u otros;
-$('elemento').toogle(); // Muestro oculto un elemento    
+  
 
 $('elemento').remove(); // Elimino un elemento
 
@@ -51,6 +49,26 @@ $('elemento').on('click', function(){})
 $('elemento').click(function () {})
 
 // Efectos y animaciones
+$('elemento').hide(); // == display: none;
+$('elemento').show(); // == display: block u otros;
+$('elemento').toogle(); // Muestro oculto un elemento  
+
 $('elemento').fadeIn();
 $('elemento').fadeOut();
 $('elemento').fadeToogle();
+
+$('elemento').slideIn();
+$('elemento').slideOut();
+$('elemento').slideToogle();
+
+
+// Prop css
+$('elemento').css('background-color', 'blue'); // Una prop
+
+$('elemento').css({
+    color: 'red',
+    backgroundColor: 'green',
+    'background-color': 'red',
+    width: '400px',
+})
+

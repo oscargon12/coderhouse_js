@@ -3,6 +3,36 @@
 // Entrada: El usuario registra alimentos y su fecha de vencimiento
 // Salida: La app alerta alimentos a vencer y genera recetas con estos productos
 
+$ (function()
+{
+  // Modo eventos semántico
+  /* $('#hide_alert').click(function (){
+    $(this).hide()
+  }) */
+
+  // Modo eventos múltiples
+  $(window).on('load', function(){
+    $('#btnOk').hide()
+    $('#testGrid').hide()
+  })
+
+  $('#foodDate').on('click', function (){
+    $('#btnOk').show()
+    //$('#testGrid').show()
+  })
+  
+  $('#btnOk').on('click', function (){
+    $('#testGrid').show()
+  })
+
+  $("body").on("keydown", "input.search", function (e) {
+    if(e.keyCode == 13) {
+      $('#testGrid').show()
+    }
+  });
+  
+})
+
 // == Recogiendo datos de alimentos ==
 
 //Construyo un array llamando los arrays de ingredientes, para agruparlos e invocar el grupo más fácil
