@@ -3,6 +3,23 @@
 // Entrada: El usuario registra alimentos y su fecha de vencimiento
 // Salida: La app alerta alimentos a vencer y genera recetas con estos productos
 
+  /* ==== Leyendo un archivo estatico ==== */
+	$.ajax({
+		url: 'data/ajax.txt',
+		success: function (data, status, xhr) {
+			console.log(xhr)
+			console.log(status)
+			console.log(data)
+
+		},
+		error: function (xhr, status, errorThrown) {
+			console.log(xhr)
+			console.log(status)
+			console.log(errorThrown)
+
+		}
+	})
+
 $ (function()
 {
   // Modo eventos semántico
@@ -260,3 +277,35 @@ console.log(elementoLista);
 } */
 
 // Para poder meter todo el li ver la línea 52 del workshop
+
+
+//Test
+$("#first-choice").change(function() {
+
+	let $dropdown = $(this);
+
+	$.getJSON("data/data.json", function(data) {
+	
+		let key = $dropdown.val();
+		let vals = [];
+							
+		switch(key) {
+			case 'beverages':
+				vals = data.beverages.split(",");
+				break;
+			case 'snacks':
+				vals = data.snacks.split(",");
+				break;
+			case 'base':
+				vals = ['Please choose from above'];
+		}
+		
+		let $secondChoice = $("#second-choice");
+		$secondChoice.empty();
+		$.each(vals, function(index, value) {
+			$secondChoice.append("<option>" + value + "</option>");
+		});
+
+	});
+});
+//Test end
