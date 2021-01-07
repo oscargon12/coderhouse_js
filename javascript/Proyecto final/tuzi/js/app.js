@@ -3,23 +3,7 @@
 // Entrada: El usuario registra alimentos y su fecha de vencimiento
 // Salida: La app alerta alimentos a vencer y genera recetas con estos productos
 
-  /* ==== Leyendo un archivo estatico ==== */
-	$.ajax({
-		url: 'data/ajax.txt',
-		success: function (data, status, xhr) {
-			console.log(xhr)
-			console.log(status)
-			console.log(data)
-
-		},
-		error: function (xhr, status, errorThrown) {
-			console.log(xhr)
-			console.log(status)
-			console.log(errorThrown)
-
-		}
-	})
-
+  // Microinteracciones con jQuery, mostrando el botón de guardar hasta completar los campos
 $ (function()
 {
   // Modo eventos semántico
@@ -91,8 +75,8 @@ $ (function()
    	document.foodSelect.ingrediente.options[0].selected = true 
     }
 
-    // == Obteniendo datos del formulario ==
-    function obtenerDatos(){
+    // == Obteniendo datos del formulario [MODELO ANTIGUO] ==
+    /* function obtenerDatos(){
 
     // 1. Obteniendo el texto del primer select
 
@@ -166,7 +150,7 @@ $ (function()
     
   }
 
-  obtenerDatos()
+  obtenerDatos() */
   
 // Con los datos capturados, puedo almacenarlos en la "despensa"
 // Datos quemados (test)
@@ -186,7 +170,6 @@ function IngredienteUsuario(categoria, nombre, vencimiento,) {
   this.categoria = categoria;
   this.nombre = nombre;
   this.vencimiento = vencimiento;
-
 }
 
 //Se instancia el objeto
@@ -215,7 +198,7 @@ console.table(productos);
 
 
 // Constructora 2
-function Receta(nombre, ingredientes, preparacion,) {
+/* function Receta(nombre, ingredientes, preparacion,) {
   this.nombre = nombre;
   this.ingredientes = ingredientes;
   this.preparacion = preparacion;
@@ -231,10 +214,8 @@ let receta2 = {
   prepara: 'estufa',
 }
 
-console.log(receta2);
+console.log(receta2); */
 
-
-// ==== Ejercicio clase 8 ====
 
 // == Creando comidas dentro de las categorías ==
 // Selecciono un elemento de la lista de alimentos
@@ -267,45 +248,71 @@ padreLista.appendChild(elementoLista)
 console.log(elementoLista);
 
 
-// Modificando estilos seún fecha
-/* if (vencimiento <= 2020.12){
-  console.log('Ya se pasó la fecha de consumo')
-  alimentoFecha.className = 'bg-danger' 
-}else {
-  console.log('Puedes consumir el producto')
-  alimentoFecha.className = 'bg-success' 
-} */
-
-// Para poder meter todo el li ver la línea 52 del workshop
+// Simulador de registros
+// En este array se guardan los registros que ingrese
+let tabla = [
+  { categoria:'Agrega una categoría', producto: 'Agrega un producto', vencimiento: 'Agrega una fecha' },
+  { categoria:'lacteos', producto: 'arequipe', vencimiento: '2121-12-21' },
+];
 
 
-//Test
-$("#first-choice").change(function() {
+window.onload = cargarEventos;
 
-	let $dropdown = $(this);
+//Eventos para los botones
+function cargarEventos(){
+  document.querySelector('#mostrar-tabla').addEventListener('click', mostrarTabla, false);
+  document.querySelector('#foodForm').addEventListener('submit', nuevoAlimento, false);
+}
 
-	$.getJSON("data/data.json", function(data) {
-	
-		let key = $dropdown.val();
-		let vals = [];
-							
-		switch(key) {
-			case 'beverages':
-				vals = data.beverages.split(",");
-				break;
-			case 'snacks':
-				vals = data.snacks.split(",");
-				break;
-			case 'base':
-				vals = ['Please choose from above'];
-		}
-		
-		let $secondChoice = $("#second-choice");
-		$secondChoice.empty();
-		$.each(vals, function(index, value) {
-			$secondChoice.append("<option>" + value + "</option>");
-		});
+function mostrarTabla(){
+  let cuerpoTabla = document.querySelector('#equipos-tabla');
+  let tablaLlena = '';
 
-	});
-});
-//Test end
+  for( let i = 0; i < tabla.length; i++){
+    tablaLlena += '<tr><td>' + tabla[i].categoria + '</td><td>' + tabla[i].producto + '</td><td>' + tabla[i].vencimiento + '</td></tr>';
+  }
+
+  cuerpoTabla.innerHTML = tablaLlena;
+}
+
+// Agregando un nuevo alimento evitando la recarga con el event.prevent
+// Al meter 1 y 2 en esta función se van a actualizar automaticamente
+function nuevoAlimento(event){
+  event.preventDefault();
+
+  // 1 Capturando datos para guardarlos
+     // Apunto al combo de categorias y le genero una variable
+     const cbxCategorias = document.querySelector('#cbxCategorias');
+
+     // A esa variable le agrego el eventListener (e)Funcion manejadora
+  let categoriaFormulario = cbxCategorias.options[cbxCategorias.selectedIndex].text;
+  let productoFormulario = document.querySelector('#cbxProductos').value;
+  let vencimientoFormulario = document.querySelector('#inputFecha').value;
+
+  localStorage.setItem('Categoria', categoriaFormulario);
+  localStorage.setItem('nombre', productoFormulario);
+  localStorage.setItem('fecha', vencimientoFormulario);
+
+  // Haciendo push en la tabla de nuevos alimentos
+  let nuevoAlimento = { categoria: categoriaFormulario, producto: productoFormulario, vencimiento: vencimientoFormulario };
+  tabla.push(nuevoAlimento);
+
+  // 2 Usando los datos capturados para enviarlos al dom
+  document.querySelector('#lblProducto').innerText = `De la categoría: ${categoriaFormulario}`;
+  document.querySelector('#lblIngrediente').innerText = `Registraste el alimento: ${productoFormulario}`;
+  document.querySelector('#lblFecha').innerText = `Que tiene fecha de vencimiento en:  ${vencimientoFormulario}`;
+
+  console.log(categoriaFormulario, productoFormulario, vencimientoFormulario)
+
+}
+
+// Pintando un alert con los datos del form
+document.querySelector('body').addEventListener("keyup", mostrarRegistro);
+
+// Con tecla enter
+function mostrarRegistro(e) {
+  if (e.keyCode === 13) {
+    document.querySelector('#showHide').style.display = "block";
+    e.preventDefault();
+    }
+  }

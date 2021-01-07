@@ -38,7 +38,7 @@
     </nav>
     
     <main>
-        <section class="container-fluid">
+          <section class="container-fluid">
             <div class="row mt-0 mt-md-5">
               <div class="col-12 col-md-3 ml-4 mt-2 d-none d-md-block ">
                 <img src="./assets/img/bg-food2.png" alt="food background" class="w-100">
@@ -110,25 +110,21 @@
                     </div>
                   </div>
 
-                  <!-- Test -->
-                  <select id="first-choice">
-                    <option selected value="base">Please Select</option>
-                    <option value="beverages">Beverages</option>
-                    <option value="snacks">Snacks</option>
-                  </select>
-                  
-                  <br>
-                  
-                  <select id="second-choice">
-                    <option>Please choose from above</option>
-                  </select>
-                  <!-- Test end -->
+                  <div class="row">
+                    <div class="col-4 mx-auto">
+                      <div class="alert alert-info text-center" role="alert" id="hide_alert">
+                        <small> <i class="fas fa-barcode"></i> Próximamente podrás escanear tus productos</small>
+                      </div>
+                    </div>
+                  </div>
     
                   <div class="row" id="btnOk">
                     <div class="col-12 col-md-4 offset offset-md-4">
                       <button type="submit" class="btn btn-block bg-color-app text-white weight-600" id="obtenerDatos" >Guardar <i class="fas fa-check"></i></button>
                     </div>
                   </div>
+
+                  
                 </div>
               </div>
             </form>
@@ -149,12 +145,42 @@
           <!-- Esta sección se va de aquí cuando implemente SPA -->
           <section class="conatiner" id="testGrid">
 
+            
+
             <div class="row mt-0">
               <div class="col-12 col-md-10 offset-1 mt-5 mx-auto">
                 <div class="alert alert-secondary" role="alert" id="hide_alert">
+                  <small> Tabla de prueba para llevar la traza de los registros [Debe irse con SPA] </small>
+                </div>
+
+                <!-- food list -->
+                <div class="row mt-0 mb-5">
+                  <div class="col-12 offset-1 mt-3 mx-auto" id="tabla-clasificacion">
+                    <div class="row">
+                      <table class="table">
+                        <thead class="bg-light text-color-app">
+                          <tr>
+                            <th>Categoria</th>
+                            <th>producto</th>
+                            <th>vencimiento</th>
+                          </tr>
+                        </thead>
+                        <tbody id="equipos-tabla">
+                        </tbody>
+                      </table>
+                    </div>
+                    <div class="row">
+                      <div class="col text-center">
+                        <button id="mostrar-tabla" class=" bg-color-app border-0 text-white rounded py-2 px-5"> <i class="far fa-eye"></i> Mostrar tabla</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="alert alert-secondary" role="alert" id="hide_alert">
                   <small> Esta sección pertenece a la <b> Despensa</b>, se va para allá cuando implemente SPA </small>
                 </div>
-                <!-- food list -->
+                
                 <!-- Button trigger modal -->
                 <div class="row px-1" id="categoryList">
                   <div class="col-12 col-md-4 mb-4">

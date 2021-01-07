@@ -7,3 +7,47 @@ let ingredientes_5 = ['-', 'Atún', 'Salchcichas', 'Fríjoles enlatados', 'Maíz
 let ingredientes_6 = ['-', 'Manzanas', 'Uvas', 'Peras', 'Naranjas', 'Sandía', 'Duraznos', 'Plátanos', 'Papaya']
 let ingredientes_7 = ['-', 'Alverja', 'Zanahoria', 'Tomate', 'Cebolla larga', 'Cebolla cabezona', 'Pimentón', 'Brocoli']
 let ingredientes_8 = ['-', 'Azucar', 'Sal', 'Salsa de tomate', 'Mayonesa', 'Mostaza', 'Vinagreta']
+
+
+document.addEventListener('DOMContentLoaded', function () {
+
+	/* ==== Leyendo un archivo estatico ==== */
+	$.ajax({
+		url: 'data/data.json',
+		success: function (data, status, xhr) {
+			console.log(xhr)
+			console.log(status)
+            console.log(data)
+
+            let res = document.querySelector('#res');
+            res.innerHTML = '';
+
+            for(let item of data){
+                res.innerHTML += `
+                <div class="card mb-3">
+                <div class="card-header text-color-app ">
+                  ${item.tipo_comida}
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title text-secondary">${item.receta_nombre}</h5>
+                  <p class="card-text text-color-app mb-1">INGREDIENTES</p>
+                  <p class="card-text color800">${item.ingredientes}</p>
+                </div>
+              </div>
+                `
+            }
+
+		},
+		error: function (xhr, status, errorThrown) {
+			console.log(xhr)
+			console.log(status)
+			console.log(errorThrown)
+
+		}
+	})
+
+
+	/* ==== Consultar API externa ==== */
+
+
+})
