@@ -1,43 +1,43 @@
 [{
   "id": 1,
-  "tipo_comida": "desayuno",
+  "tipo_comida": "Desayuno",
   "receta_nombre": "KUMIS CON CEREAL",
-  "ingredientes": ["kumis", "leche", "manzana"]
+  "ingredientes": [" kumis", " leche", " manzana"]
 }, {
   "id": 2,
-  "tipo_comida": "desayuno",
+  "tipo_comida": "Desayuno",
   "receta_nombre": "PAN WINNIE POOH",
-  "ingredientes": ["pan tajado", "huevos", "miel", "té"]
+  "ingredientes": [" pan tajado", " huevos", " miel", " té"]
 }, {
   "id": 3,
-  "tipo_comida": "desayuno",
+  "tipo_comida": "Desayuno",
   "receta_nombre": "WAFLES",
-  "ingredientes": ["mezcla wafles", "miel", "mermelada", "té"]
+  "ingredientes": [" mezcla wafles", " miel", " mermelada", " té"]
 }, {
   "id": 4,
   "tipo_comida": "Almuerzo",
   "receta_nombre": "ALBÓNDIGAS A LA JARDINERA",
-  "ingredientes": ["carne", "huevos", "ajo", "pan", "leche", "perejil", "sal", "pimienta", "harina"]
+  "ingredientes": [" carne", " huevos", " ajo", " pan", "l eche", " perejil", " sal", " pimienta", " harina"]
 }, {
   "id": 5,
   "tipo_comida": "Almuerzo",
   "receta_nombre": "ALITAS DE POLLO CON PAPAS",
-  "ingredientes": ["pollo", "papas", "perejil", "vino blanco", "pimienta", "tomillo", "romero", "aceite de oliva", "sal"]
+  "ingredientes": [" pollo", " papas", " perejil", " vino blanco", " pimienta", " tomillo", " romero", " aceite de oliva", " sal"]
 }, {
   "id": 6,
   "tipo_comida": "Almuerzo",
   "receta_nombre": "EMPANADAS",
-  "ingredientes": ["hojaldre", "carne", "ajo", "queso", "huevos", "arroz", "arveja"]
+  "ingredientes": [" hojaldre", " carne", " ajo", " queso", " huevos", " arroz", " arveja"]
 }, {
   "id": 7,
   "tipo_comida": "Almuerzo",
   "receta_nombre": "AGUACATES RELLENAS DE ATÚN",
-  "ingredientes": ["Aguacate", "atún", "Huevos", "maíz", "tomates", "mayonesa", "sal", "limón"]
+  "ingredientes": [" Aguacate", " atún", " Huevos", " maíz", " tomates", " mayonesa", " sal", " limón"]
 }, {
   "id": 8,
   "tipo_comida": "Cena",
   "receta_nombre": "LASAGNA DE CARNE",
-  "ingredientes": ["carne", "ajo", "tomate", "vino blanco", "pimienta", "tomillo", "romero", "aceite de oliva", "sal"]
+  "ingredientes": [" carne", " ajo", " tomate", " vino blanco", " pimienta", " tomillo", " romero", " aceite de oliva", " sal"]
 }, {
   "id": 9,
   "tipo_comida": "Cena",
@@ -52,12 +52,12 @@
   "id": 11,
   "tipo_comida": "Postre",
   "receta_nombre": "ARROZ CON LECHE",
-  "ingredientes": ["leche", "limón", "canela", "azucar", "crema de leche", "uvas pasas", "arroz"]
+  "ingredientes": [" leche", " limón", " canela", " azucar", " crema de leche", " uvas pasas", " arroz"]
 }, {
   "id": 12,
   "tipo_comida": "Postre",
   "receta_nombre": "BROWNIE CON NUECES",
-  "ingredientes": ["Mantequilla", "Chocolate", "cacao", "huevos", "harina", "nueces", "azucar"]
+  "ingredientes": ["Mantequilla", "Chocolate", "cacao", "huevos", " harina", " nueces", " azucar"]
 }, {
   "id": 13,
   "tipo_comida": "Postre",

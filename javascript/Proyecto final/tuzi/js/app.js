@@ -21,7 +21,8 @@ $ (function()
     $('#btnOk').show()
     //$('#testGrid').show()
   })
-  
+
+  //mostrando botón guardar
   $('#btnOk').on('click', function (){
     $('#testGrid').show()
   })
@@ -34,7 +35,7 @@ $ (function()
   
 })
 
-// == Recogiendo datos de alimentos ==
+// ================ Recogiendo datos de alimentos ================
 
 //Construyo un array llamando los arrays de ingredientes, para agruparlos e invocar el grupo más fácil
   let ingredientesTodos = [
@@ -75,88 +76,8 @@ $ (function()
    	document.foodSelect.ingrediente.options[0].selected = true 
     }
 
-    // == Obteniendo datos del formulario [MODELO ANTIGUO] ==
-    /* function obtenerDatos(){
 
-    // 1. Obteniendo el texto del primer select
 
-    // Apunto al combo de categorias y le genero una variable
-    const cbxCategorias = document.querySelector('#cbxCategorias');
-
-    // A esa variable le agrego el eventListener (e)Funcion manejadora
-    cbxCategorias.addEventListener('change', (e) => {
-      let cbxCategorias = document.querySelector('#cbxCategorias');
-      let producto = cbxCategorias.options[cbxCategorias.selectedIndex].text;
-
-      document.querySelector('#lblProducto').innerText = `De la categoría: ${producto}`;
-      console.log (producto);
-
-      localStorage.setItem('categoria', producto);
-    });
-
-    // 2. Obteniendo el texto del segundo select
-    let ingreName;
-
-    cbxProductos.addEventListener('change', pedirNombre);
-    
-    function pedirNombre (e){
-      let cbxProductos = document.querySelector('#cbxProductos');
-      ingreName = cbxProductos.options[cbxProductos.selectedIndex].text;
-
-      document.querySelector('#lblIngrediente').innerText = `Registraste el alimento: ${ingreName}`;
-      // imprimiendo el dato del usuario en el listado
-      document.querySelector('#lbProducto').innerText = ingreName;
-      console.log (ingreName);
-
-      localStorage.setItem('alimento', ingreName);
-    };
-
-    // Ya que hacen lo mismo 👆, creo que puedo meterlas en una misma funcion
-    // Los parametros serían id del combo, nombre de la funcion y de la variable
-
-    // 3. obteniendo fecha
-    const inputFecha = document.querySelector('#inputFecha');
-
-    inputFecha.addEventListener('keyup', (e) => {
-      let inputFecha = document.querySelector('#inputFecha');
-      let fechaSel = inputFecha.value;
-
-      document.querySelector('#lblFecha').innerText = `Que tiene fecha de vencimiento en:  ${fechaSel}`;
-      // imprimiendo el dato del usuario en el listado
-      document.querySelector('#lbFecha').innerText = fechaSel;
-      console.log (fechaSel);
-
-      localStorage.setItem('fecha', fechaSel);
-    });
-
-    
-    // mostrando datos con botón guardar
-    document.querySelector("#obtenerDatos").onclick = registroClick;
-
-    function registroClick(e) {
-    document.querySelector('#showHide').style.display = "block";
-    e.preventDefault();
-    }
-  
-    // mostrando datos con tecla enter
-    document.querySelector('body').addEventListener("keyup", mostrarRegistro);
-    
-    function mostrarRegistro(e) {
-    if (e.keyCode === 13) {
-      document.querySelector('#showHide').style.display = "block";
-      e.preventDefault();
-      }
-    }
-    
-  }
-
-  obtenerDatos() */
-  
-// Con los datos capturados, puedo almacenarlos en la "despensa"
-// Datos quemados (test)
-/* let categoria = 'lacteos';
-let nombre = 'leche';
-let vencimiento = '2021-12-22'; */
 
 let brName = `producto prueba ${ingredientes_1[5]}`;
 
@@ -195,27 +116,6 @@ nombre: 'arroz',
 vencimiento: '15-01-2020',});
 
 console.table(productos);
-
-
-// Constructora 2
-/* function Receta(nombre, ingredientes, preparacion,) {
-  this.nombre = nombre;
-  this.ingredientes = ingredientes;
-  this.preparacion = preparacion;
-
-  this.mostrarReceta = function () {
-    console.log(`Con los ingredientes ${this.ingredientes} preparaste la receta ${this.nombre}`);
-  };
-}
-
-let receta2 = {
-  nombreReceta: 'Arroz de leche',
-  ingre: ['Arroz', 'leche', 'Leche condensada', 'Uvas pasas', 'canela'],
-  prepara: 'estufa',
-}
-
-console.log(receta2); */
-
 
 // == Creando comidas dentro de las categorías ==
 // Selecciono un elemento de la lista de alimentos
@@ -260,8 +160,8 @@ window.onload = cargarEventos;
 
 //Eventos para los botones
 function cargarEventos(){
-  document.querySelector('#mostrar-tabla').addEventListener('click', mostrarTabla, false);
   document.querySelector('#foodForm').addEventListener('submit', nuevoAlimento, false);
+  document.querySelector('#mostrar-tabla').addEventListener('click', mostrarTabla, false);
 }
 
 function mostrarTabla(){
@@ -269,7 +169,7 @@ function mostrarTabla(){
   let tablaLlena = '';
 
   for( let i = 0; i < tabla.length; i++){
-    tablaLlena += '<tr><td>' + tabla[i].categoria + '</td><td>' + tabla[i].producto + '</td><td>' + tabla[i].vencimiento + '</td></tr>';
+    tablaLlena += `<tr><td> ${tabla[i].categoria} </td><td> ${tabla[i].producto} </td><td> ${tabla[i].vencimiento} </td></tr>`;
   }
 
   cuerpoTabla.innerHTML = tablaLlena;
@@ -284,11 +184,13 @@ function nuevoAlimento(event){
      // Apunto al combo de categorias y le genero una variable
      const cbxCategorias = document.querySelector('#cbxCategorias');
 
-     // A esa variable le agrego el eventListener (e)Funcion manejadora
+     // == Recogiendo los datos traidos del form ==
+  // A esa variable le agrego el eventListener (e)Funcion manejadora
   let categoriaFormulario = cbxCategorias.options[cbxCategorias.selectedIndex].text;
   let productoFormulario = document.querySelector('#cbxProductos').value;
   let vencimientoFormulario = document.querySelector('#inputFecha').value;
 
+  // Enviando datos al storage
   localStorage.setItem('Categoria', categoriaFormulario);
   localStorage.setItem('nombre', productoFormulario);
   localStorage.setItem('fecha', vencimientoFormulario);
@@ -306,13 +208,36 @@ function nuevoAlimento(event){
 
 }
 
-// Pintando un alert con los datos del form
+// =============== Pintando un alert con los datos del form ===============
 document.querySelector('body').addEventListener("keyup", mostrarRegistro);
 
 // Con tecla enter
 function mostrarRegistro(e) {
   if (e.keyCode === 13) {
     document.querySelector('#showHide').style.display = "block";
+    document.querySelector('#advertising').style.display = "none";
     e.preventDefault();
     }
   }
+
+  // = Ocultando aviso de bar code =
+document.querySelector('#btnOk').addEventListener("click", ocultarAviso);
+
+function ocultarAviso(){
+  document.querySelector('#advertising').style.display = "none";
+}
+
+
+// =============== identificando fecha actual ===============
+let today = new Date();
+let yyyy = today.getFullYear();
+let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+let dd = String(today.getDate()).padStart(2, '0');
+
+today = mm + '/' + dd + '/' + yyyy;
+today = `${yyyy}-${dd}-${mm}`;
+console.log(today);
+
+let fechaParseada = Date.parse(vencimiento);
+
+console.log(`Esta es LAAA ${fechaParseada}`)

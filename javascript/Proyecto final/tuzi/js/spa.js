@@ -106,12 +106,21 @@ const NovedadesComponent = {
 	render: () => {
 		return `
         <section class="conatiner" id="testGrid">
+        
+        <div class="row mt-3">
+        <div class="col-12 col-md-10 offset-1 mt-2 mt-md-5 mx-auto">
+          <!-- Card 1 -->
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title text-color-app">Que gran despensa!</h5>
+              <p class="card-text color800">Estos son tus alimentos registrados, consúltalos y crea geniales recetas</p>
+            </div>
+          </div>
+        </div>
+      </div>
 
         <div class="row mt-0">
           <div class="col-12 col-md-10 offset-1 mt-5 mx-auto">
-            <div class="alert alert-secondary" role="alert" id="hide_alert">
-              <small> Esta sección pertenece a la <b> Despensa</b>, se va para allá cuando implemente SPA </small>
-            </div>
             <!-- food list -->
             <!-- Button trigger modal -->
             <div class="row px-1" id="categoryList">

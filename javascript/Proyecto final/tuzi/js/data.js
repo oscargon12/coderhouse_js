@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 res.innerHTML += `
                 <div class="card mb-3">
                 <div class="card-header text-color-app ">
-                  ${item.tipo_comida}
+                <small> Tipo de comida: <b> ${item.tipo_comida} </b> </small>
                 </div>
                 <div class="card-body">
                   <h5 class="card-title text-secondary">${item.receta_nombre}</h5>
