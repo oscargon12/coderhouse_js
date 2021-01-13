@@ -77,7 +77,7 @@ $ (function()
     }
 
 
-
+/* 
 
 let brName = `producto prueba ${ingredientes_1[5]}`;
 
@@ -115,11 +115,11 @@ productos.push({categoria: "Cereales",
 nombre: 'arroz',
 vencimiento: '15-01-2020',});
 
-console.table(productos);
+console.table(productos); */
 
 // == Creando comidas dentro de las categorías ==
 // Selecciono un elemento de la lista de alimentos
-const elemento = document.querySelector('.list-group-item')
+/* const elemento = document.querySelector('.list-group-item')
 console.log(elemento.textContent);
 
 //Defino al elemento padre de los alimentos
@@ -145,7 +145,7 @@ elementoLista.classList.add('border-0')
 // Apunto donde va a ir el elemento
 padreLista.appendChild(elementoLista)
 
-console.log(elementoLista);
+console.log(elementoLista); */
 
 
 // Simulador de registros
@@ -195,18 +195,51 @@ function nuevoAlimento(event){
   localStorage.setItem('nombre', productoFormulario);
   localStorage.setItem('fecha', vencimientoFormulario);
 
-  // Haciendo push en la tabla de nuevos alimentos
+  // Haciendo push de objetos en la tabla de nuevos alimentos
   let nuevoAlimento = { categoria: categoriaFormulario, producto: productoFormulario, vencimiento: vencimientoFormulario };
   tabla.push(nuevoAlimento);
 
   // 2 Usando los datos capturados para enviarlos al dom
   document.querySelector('#lblProducto').innerText = `De la categoría: ${categoriaFormulario}`;
   document.querySelector('#lblIngrediente').innerText = `Registraste el alimento: ${productoFormulario}`;
-  document.querySelector('#lblFecha').innerText = `Que tiene fecha de vencimiento en:  ${vencimientoFormulario}`;
+  document.querySelector('#lblFecha').innerText = `Que tiene fecha de vencimiento en: ${vencimientoFormulario}`;
 
   console.log(categoriaFormulario, productoFormulario, vencimientoFormulario)
 
+  let vencimientoParseado = Date.parse(vencimientoFormulario);
+
+  // ===== identificando fecha actual =====
+let today = new Date();
+let yyyy = today.getFullYear();
+let mm = String(today.getMonth() + 1).padStart(2, '0'); //enero es 0!
+let dd = String(today.getDate()).padStart(2, '0');
+
+today = mm + '/' + dd + '/' + yyyy;
+today = `${yyyy}-${dd}-${mm}`;
+console.log(`La fecha de hoy es ${today}`);
+
+/* let dateTest = new Date(2020,11,25);
+console.log(dateTest)
+let testParseado = Date.parse(dateTest);
+console.log(`el test dice ${testParseado}`); */
+
+let fechaParseada = Date.now(today);
+
+console.log(`Fecha actual parseada: ${fechaParseada}`)
+console.log(`Vencimiento parseado: ${vencimientoParseado}`)
+
+if(vencimientoParseado<fechaParseada){
+  console.log('Oh no, ya venció el alimento');
+} else {
+  console.log('Puedes comer el alimento');
 }
+
+
+}
+// termina la captura de datos
+
+
+
 
 // =============== Pintando un alert con los datos del form ===============
 document.querySelector('body').addEventListener("keyup", mostrarRegistro);
@@ -228,16 +261,3 @@ function ocultarAviso(){
 }
 
 
-// =============== identificando fecha actual ===============
-let today = new Date();
-let yyyy = today.getFullYear();
-let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-let dd = String(today.getDate()).padStart(2, '0');
-
-today = mm + '/' + dd + '/' + yyyy;
-today = `${yyyy}-${dd}-${mm}`;
-console.log(today);
-
-let fechaParseada = Date.parse(vencimiento);
-
-console.log(`Esta es LAAA ${fechaParseada}`)
