@@ -223,15 +223,31 @@ console.log(dateTest)
 let testParseado = Date.parse(dateTest);
 console.log(`el test dice ${testParseado}`); */
 
+//Parseando la fecha para compararlas
 let fechaParseada = Date.now(today);
 
 console.log(`Fecha actual parseada: ${fechaParseada}`)
 console.log(`Vencimiento parseado: ${vencimientoParseado}`)
 
+const warningTitle = document.querySelector('.alert-heading');
+//console.log(warningTitle);
+
+const warningCard = document.querySelector('#showHide');
+//console.log(warningCard);
+
+
 if(vencimientoParseado<fechaParseada){
   console.log('Oh no, ya venció el alimento');
+  document.querySelector('#showHide').style.display = "block";
+  warningCard.classList.remove('alert-success')
+  warningCard.classList.add('alert-danger')
+  document.querySelector('.alert-heading').textContent = `El alimento está vencido`
 } else {
   console.log('Puedes comer el alimento');
+  document.querySelector('.alert-heading').textContent = `¡Alimento registrado correctamente!`
+  warningCard.classList.add('alert-success')
+  warningCard.classList.remove('alert-danger')
+  document.querySelector('#showHide').style.display = "block";
 }
 
 
