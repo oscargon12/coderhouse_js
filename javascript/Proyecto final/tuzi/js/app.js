@@ -152,7 +152,6 @@ console.log(elementoLista); */
 // En este array se guardan los registros que ingrese
 let tabla = [
   { categoria:'Agrega una categoría', producto: 'Agrega un producto', vencimiento: 'Agrega una fecha' },
-  { categoria:'lacteos', producto: 'arequipe', vencimiento: '2121-12-21' },
 ];
 
 
@@ -160,8 +159,10 @@ window.onload = cargarEventos;
 
 //Eventos para los botones
 function cargarEventos(){
+  // Evento submit para guardar datos
   document.querySelector('#foodForm').addEventListener('submit', nuevoAlimento, false);
   document.querySelector('#mostrar-tabla').addEventListener('click', mostrarTabla, false);
+  document.querySelector('#mostrar-tabla').addEventListener('click', ocultarTabla, false);
 }
 
 function mostrarTabla(){
@@ -173,6 +174,15 @@ function mostrarTabla(){
   }
 
   cuerpoTabla.innerHTML = tablaLlena;
+
+  
+}
+
+function ocultarTabla(){
+  let cambiarBoton = document.querySelector('#mostrar-tabla');
+  console.log(cambiarBoton);
+  document.querySelector('#mostrar-tabla').textContent = `Ocultar tabla`
+
 }
 
 // Agregando un nuevo alimento evitando la recarga con el event.prevent
@@ -235,16 +245,18 @@ const warningTitle = document.querySelector('.alert-heading');
 const warningCard = document.querySelector('#showHide');
 //console.log(warningCard);
 
-
+// Cambiando color y titulo de alertas según vencimiento
 if(vencimientoParseado<fechaParseada){
   console.log('Oh no, ya venció el alimento');
   document.querySelector('#showHide').style.display = "block";
   warningCard.classList.remove('alert-success')
   warningCard.classList.add('alert-danger')
   document.querySelector('.alert-heading').textContent = `El alimento está vencido`
+  document.querySelector('#food-advice').textContent = `Te sugerimos no usar el producto`
 } else {
   console.log('Puedes comer el alimento');
   document.querySelector('.alert-heading').textContent = `¡Alimento registrado correctamente!`
+  document.querySelector('#food-advice').textContent = `Ahora podrás usarlo en una receta`
   warningCard.classList.add('alert-success')
   warningCard.classList.remove('alert-danger')
   document.querySelector('#showHide').style.display = "block";
