@@ -46,8 +46,4 @@ document.addEventListener('DOMContentLoaded', function () {
 		}
 	})
 
-
-	/* ==== Consultar API externa ==== */
-
-
 })

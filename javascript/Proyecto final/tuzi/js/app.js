@@ -22,11 +22,12 @@ $ (function()
     //$('#testGrid').show()
   })
 
-  //mostrando botón guardar
+  //mostrando botón guardar con click en fecha
   $('#btnOk').on('click', function (){
     $('#testGrid').show()
   })
 
+  // ...con tecla enter
   $("body").on("keydown", "input.search", function (e) {
     if(e.keyCode == 13) {
       $('#testGrid').show()
@@ -150,38 +151,37 @@ console.log(elementoLista); */
 
 // Simulador de registros
 // En este array se guardan los registros que ingrese
+
+let categoriaStorage = localStorage.Categoria;
+  let alimentoStorage = localStorage.nombre;
+  let vencimientoStorage = localStorage.fecha;
+
 let tabla = [
   { categoria:'Agrega una categoría', producto: 'Agrega un producto', vencimiento: 'Agrega una fecha' },
+  { categoria:categoriaStorage, producto: alimentoStorage, vencimiento: vencimientoStorage },
 ];
 
 
 window.onload = cargarEventos;
 
 //Eventos para los botones
-function cargarEventos(){
+function cargarEventos(e){
   // Evento submit para guardar datos
   document.querySelector('#foodForm').addEventListener('submit', nuevoAlimento, false);
-  document.querySelector('#mostrar-tabla').addEventListener('click', mostrarTabla, false);
-  document.querySelector('#mostrar-tabla').addEventListener('click', ocultarTabla, false);
+  document.querySelector('#actualizar-tabla').addEventListener('click', actualizarTabla, false);
 }
 
-function mostrarTabla(){
-  let cuerpoTabla = document.querySelector('#equipos-tabla');
+function actualizarTabla(){
+  let cuerpoTabla = document.querySelector('#alimentos-tabla');
   let tablaLlena = '';
 
   for( let i = 0; i < tabla.length; i++){
-    tablaLlena += `<tr><td> ${tabla[i].categoria} </td><td> ${tabla[i].producto} </td><td> ${tabla[i].vencimiento} </td></tr>`;
+    tablaLlena += `<tr class="text-secondary"><td> ${tabla[i].categoria} </td><td> ${tabla[i].producto} </td><td class="badge badge-pill" id="due-date"> ${tabla[i].vencimiento} </td></tr>`;
+    //El [i] dentro de cada recorrido del ciclo se refiere a cada posición del array tabla
+    // Cuando [i] valga cero, se muestra el primer alimento registrado  y así sucesivamente
   }
 
   cuerpoTabla.innerHTML = tablaLlena;
-
-  
-}
-
-function ocultarTabla(){
-  let cambiarBoton = document.querySelector('#mostrar-tabla');
-  console.log(cambiarBoton);
-  document.querySelector('#mostrar-tabla').textContent = `Ocultar tabla`
 
 }
 
@@ -249,19 +249,20 @@ const warningCard = document.querySelector('#showHide');
 if(vencimientoParseado<fechaParseada){
   console.log('Oh no, ya venció el alimento');
   document.querySelector('#showHide').style.display = "block";
-  warningCard.classList.remove('alert-success')
-  warningCard.classList.add('alert-danger')
+  warningCard.classList.remove('alert-success');
+  warningCard.classList.add('alert-danger');
   document.querySelector('.alert-heading').textContent = `El alimento está vencido`
   document.querySelector('#food-advice').textContent = `Te sugerimos no usar el producto`
+  document.querySelector('#due-date').classList.add('badge-danger');
 } else {
   console.log('Puedes comer el alimento');
   document.querySelector('.alert-heading').textContent = `¡Alimento registrado correctamente!`
   document.querySelector('#food-advice').textContent = `Ahora podrás usarlo en una receta`
-  warningCard.classList.add('alert-success')
-  warningCard.classList.remove('alert-danger')
+  warningCard.classList.add('alert-success');
+  warningCard.classList.remove('alert-danger');
   document.querySelector('#showHide').style.display = "block";
+  document.querySelector('#due-date').classList.add('badge-success');
 }
-
 
 }
 // termina la captura de datos
@@ -287,5 +288,3 @@ document.querySelector('#btnOk').addEventListener("click", ocultarAviso);
 function ocultarAviso(){
   document.querySelector('#advertising').style.display = "none";
 }
-
-

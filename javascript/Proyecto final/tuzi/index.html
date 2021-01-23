@@ -111,7 +111,7 @@
                   </div>
 
                   <div class="row" id="advertising">
-                    <div class="col-4 mx-auto">
+                    <div class="col-12 col-lg-6 mx-auto">
                       <div class="alert alert-info text-center" role="alert" id="hide_alert">
                         <small> <i class="fas fa-barcode"></i> Próximamente podrás escanear tus productos</small>
                       </div>
@@ -132,7 +132,7 @@
           </section>
 
           <section class="container mt-4">
-            <div class="alert alert-success" id="showHide" style="display: none;" role="alert">
+            <div class="col-12 col-md-10 offset-0 offset-md-1 alert alert-success" id="showHide" style="display: none;" role="alert">
               <h4 class="alert-heading">Listo!</h4>
               <div id="lblIngrediente"></div>
               <div id="lblProducto"></div>
@@ -148,41 +148,50 @@
             
 
             <div class="row mt-0">
-              <div class="col-12 col-md-10 offset-1 mt-5 mx-auto">
-                <div class="alert alert-secondary" role="alert" id="hide_alert">
-                  <small> Tabla de prueba para llevar la traza de los registros [Debe irse con SPA] </small>
-                </div>
+              <div class="col-12 col-md-10 offset-1 mt-5 mx-auto table-text p-0">
 
-                <!-- food list -->
-                <div class="row mt-0 mb-5">
-                  <div class="col-12 offset-1 mt-3 mx-auto" id="tabla-clasificacion">
+                <div class="card mb-5">
+                  <div class="card-header text-black-50">
+                    Estos son los alimentos que has registrado hoy
+                  </div>
+                  <div class="card-body pt-0">
                     <div class="row">
-                      <table class="table">
-                        <thead class="bg-light text-color-app">
-                          <tr>
-                            <th>Categoria</th>
-                            <th>producto</th>
-                            <th>vencimiento</th>
-                          </tr>
-                        </thead>
-                        <tbody id="equipos-tabla">
-                        </tbody>
-                      </table>
-                    </div>
-                    <div class="row">
-                      <div class="col text-center">
-                        <button id="mostrar-tabla" class=" bg-color-app border-0 text-white rounded py-2 px-5"> <i class="far fa-eye"></i> Actualizar tabla</button>
+                      <div class="col-12 offset-1 mt-1 mx-0" id="tabla-clasificacion">
+                        <div class="row">
+                          <table class="table">
+                            <thead class="bg-light text-color-app">
+                              <tr>
+                                <th class="t-head">Categoria</th>
+                                <th class="t-head">Producto</th>
+                                <th class="t-head">Vencimiento</th>
+                              </tr>
+                            </thead>
+                            <tbody id="alimentos-tabla">
+                            </tbody>
+                          </table>
+                        </div>
+                        <div class="row">
+                          <div class="col text-center">
+                            <button id="actualizar-tabla" class=" bg-color-app border-0 text-white rounded py-1 px-2"> <small> <i class="fas fa-sync"></i> Actualizar tabla </small></button> 
+                          </div>
+                          <!-- <div class="col text-right">
+                            <button id="ocultar-tabla" class="border border-danger text-color-app bg-white rounded py-1 px-2"> <small> <i class="far fa-eye"></i> mostrar tabla </small></button>
+                          </div> -->
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
 
-                <div class="alert alert-secondary" role="alert" id="hide_alert">
+                <!-- food list -->
+                
+
+                <!-- <div class="alert alert-secondary" role="alert" id="hide_alert">
                   <small> Esta sección pertenece a la <b> Despensa</b>, se va para allá cuando implemente SPA </small>
-                </div>
+                </div> -->
                 
                 <!-- Button trigger modal -->
-                <div class="row px-1" id="categoryList">
+                <!-- <div class="row px-1" id="categoryList">
                   <div class="col-12 col-md-4 mb-4">
                     <button type="button" class="btn btn-block btn-light shadow-sm border text-color-app py-4 categoryItem" data-toggle="modal" data-target="#exampleModal">
                       <i class="fas fa-glass-whiskey"></i> Lacteos
@@ -213,49 +222,9 @@
                       <i class="fas fa-hotdog"></i> Embutidos
                     </button>
                   </div>
-                </div>
-      
-      
+                </div> -->
       
                 <!-- Modal -->
-                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h5 class="modal-title text-color-app" id="exampleModalLabel"><i class="fas fa-glass-whiskey"></i> Lacteos</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">&times;</span>
-                        </button>
-                      </div>
-                      <div class="modal-body">
-                        <ul class="list-group-flush pl-0" id="foodList">
-                          <li class="d-flex justify-content-between align-items-center bg-light text-muted">
-                            Producto
-                            <span class="">Vencimiento</span>
-                          </li>
-                          <li class="list-group-item d-flex justify-content-between align-items-center color800">
-                            <!-- <input class="form-check-input" type="checkbox" value="" id="defaultCheck1"> -->
-                            <label class="form-check-label" for="defaultCheck1">
-                              Agrega un producto
-                            </label>
-                            <span class="badge badge-secondary badge-pill">-</span>
-                          </li>
-                          <li class="list-group-item d-flex justify-content-between align-items-center color800">
-                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                            <label class="form-check-label" for="defaultCheck1" id="lbProducto">
-                            </label>
-                            <span class="badge badge-success badge-pill" id="lbFecha"></span>
-                          </li>
-      
-                        </ul>
-                      </div>
-                      <div class="modal-footer">
-                        <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
-                        <button type="button" class="btn bg-color-app text-light">Usar en receta</button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
               </div>
             </div>
           </section>
