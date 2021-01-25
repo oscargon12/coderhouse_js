@@ -57,6 +57,64 @@ console.log(padreLista);
 // Defino el nuevo elemento a crear como item de la lista
 const elementoLista = document.createElement('li');
 
+// Test case
+
+let categoriaModal = localStorage.getItem('Categoria');
+console.log(categoriaModal);
+
+switch (categoriaModal) {
+	case categoriaModal = 'Lacteos':
+		console.log(`Hay un alimento guardado en lacteos`);
+		break;
+	
+	case categoriaModal = 'Carnes':
+		console.log(`Hay un alimento guardado en Carnes`);
+		break;
+	
+	case categoriaModal = 'Cereales':
+		console.log(`Hay un alimento guardado en Cereales`);
+		break;
+	
+	case categoriaModal = 'Embutidos':
+		console.log(`Hay un alimento guardado en Embutidos`);
+		break;
+	
+	case categoriaModal = 'Enlatados':
+    console.log(`Hay un alimento guardado en Enlatados`);
+    
+    const elemento2 = document.querySelector('.list-group-item2')
+    const padreLista2 = elemento2.parentElement;
+    console.log(padreLista2);
+    const elementoLista2 = document.createElement('li');
+
+    elementoLista2.innerHTML = `
+    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+    <label class="form-check-label" for="defaultCheck1">
+        ${alimento}
+    </label>
+    <span class="badge badge-pill" id="due-date">${vencimiento}</span>
+    `
+
+		break;
+	
+	case categoriaModal = 'frutas':
+		console.log(`Hay un alimento guardado en frutas`);
+		break;
+	
+	case categoriaModal = 'Verduras':
+		console.log(`Hay un alimento guardado en Verduras`);
+		break;
+	
+	case categoriaModal = 'Adiciones':
+		console.log(`Hay un alimento guardado en Adiciones`);
+		break;
+	
+	default:
+		console.log("No hay nada guardado");
+		break;
+}
+// End test case
+
 // Si el localstorage está vacío debe indicar que no hay nada
 if (localStorage.getItem("Categoria") === null && localStorage.getItem("nombre") === null && localStorage.getItem("fecha") === null) {
     elementoLista.innerHTML = `
@@ -79,6 +137,7 @@ if (localStorage.getItem("Categoria") === null && localStorage.getItem("nombre")
     `
   }
 
+  // Le doy estilos de bootstrap con el classList.add
 elementoLista.classList.add('list-group-item')
 elementoLista.classList.add('d-flex')
 elementoLista.classList.add('justify-content-between')
@@ -98,6 +157,6 @@ console.log(elementoLista);
 
   // Si está buena se pone verde
   }else{
-      console.log('Pueses disfrutar tu alimento');
+      console.log('Puedes disfrutar tu alimento');
       document.querySelector('#due-date').classList.add('badge-success');
 }

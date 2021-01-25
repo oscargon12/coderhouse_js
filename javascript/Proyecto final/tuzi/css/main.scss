@@ -6,9 +6,10 @@ $gray800: #424242;
 
 body {
   background: white;
+  color: #fff;
   margin: 0;
   font-family: "Poppins", sans-serif;
-  color: #fff;
+  font-size: 15px;
   padding-left: 240px;
 }
 
@@ -19,6 +20,14 @@ body {
 
 .color800 {
   color: $gray800;
+}
+
+.text-15 {
+  font-size: 15px !important;
+}
+
+.text-14 {
+  font-size: 14px;
 }
 
 //background Color
@@ -101,7 +110,7 @@ main .helper span {
   outline: none;
 }
 
-.t-head{
+.t-head {
   font-weight: 500 !important;
 }
 
@@ -150,7 +159,7 @@ main .helper span {
     pointer-events: none;
   }
 
-  .table-text{
+  .table-text {
     font-size: 13px;
   }
 }
@@ -200,7 +209,7 @@ main .helper span {
     pointer-events: none;
   }
 
-  .table-text{
+  .table-text {
     font-size: 13px;
   }
 }

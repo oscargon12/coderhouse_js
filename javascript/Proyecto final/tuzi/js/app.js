@@ -176,7 +176,7 @@ function actualizarTabla(){
   let tablaLlena = '';
 
   for( let i = 0; i < tabla.length; i++){
-    tablaLlena += `<tr class="text-secondary"><td> ${tabla[i].categoria} </td><td> ${tabla[i].producto} </td><td class="badge badge-pill" id="due-date"> ${tabla[i].vencimiento} </td></tr>`;
+    tablaLlena += `<tr class="text-secondary"><td class="text-14"> ${tabla[i].categoria} </td><td class="text-14"> ${tabla[i].producto} </td><td class="text-14" id="due-date"> ${tabla[i].vencimiento} </td></tr>`;
     //El [i] dentro de cada recorrido del ciclo se refiere a cada posición del array tabla
     // Cuando [i] valga cero, se muestra el primer alimento registrado  y así sucesivamente
   }
@@ -219,58 +219,54 @@ function nuevoAlimento(event){
   let vencimientoParseado = Date.parse(vencimientoFormulario);
 
   // ===== identificando fecha actual =====
-let today = new Date();
-let yyyy = today.getFullYear();
-let mm = String(today.getMonth() + 1).padStart(2, '0'); //enero es 0!
-let dd = String(today.getDate()).padStart(2, '0');
+  let today = new Date();
+  let yyyy = today.getFullYear();
+  let mm = String(today.getMonth() + 1).padStart(2, '0'); //enero es 0!
+  let dd = String(today.getDate()).padStart(2, '0');
 
-today = mm + '/' + dd + '/' + yyyy;
-today = `${yyyy}-${dd}-${mm}`;
-console.log(`La fecha de hoy es ${today}`);
+  today = mm + '/' + dd + '/' + yyyy;
+  today = `${yyyy}-${dd}-${mm}`;
+  console.log(`La fecha de hoy es ${today}`);
 
-/* let dateTest = new Date(2020,11,25);
-console.log(dateTest)
-let testParseado = Date.parse(dateTest);
-console.log(`el test dice ${testParseado}`); */
+  /* let dateTest = new Date(2020,11,25);
+  console.log(dateTest)
+  let testParseado = Date.parse(dateTest);
+  console.log(`el test dice ${testParseado}`); */
 
-//Parseando la fecha para compararlas
-let fechaParseada = Date.now(today);
+  //Parseando la fecha para compararlas
+  let fechaParseada = Date.now(today);
 
-console.log(`Fecha actual parseada: ${fechaParseada}`)
-console.log(`Vencimiento parseado: ${vencimientoParseado}`)
+  console.log(`Fecha actual parseada: ${fechaParseada}`)
+  console.log(`Vencimiento parseado: ${vencimientoParseado}`)
 
-const warningTitle = document.querySelector('.alert-heading');
-//console.log(warningTitle);
+  const warningTitle = document.querySelector('.alert-heading');
+  //console.log(warningTitle);
 
-const warningCard = document.querySelector('#showHide');
-//console.log(warningCard);
+  const warningCard = document.querySelector('#showHide');
+  //console.log(warningCard);
 
 // Cambiando color y titulo de alertas según vencimiento
-if(vencimientoParseado<fechaParseada){
-  console.log('Oh no, ya venció el alimento');
-  document.querySelector('#showHide').style.display = "block";
-  warningCard.classList.remove('alert-success');
-  warningCard.classList.add('alert-danger');
-  document.querySelector('.alert-heading').textContent = `El alimento está vencido`
-  document.querySelector('#food-advice').textContent = `Te sugerimos no usar el producto`
-  document.querySelector('#due-date').classList.add('badge-danger');
-} else {
-  console.log('Puedes comer el alimento');
-  document.querySelector('.alert-heading').textContent = `¡Alimento registrado correctamente!`
-  document.querySelector('#food-advice').textContent = `Ahora podrás usarlo en una receta`
-  warningCard.classList.add('alert-success');
-  warningCard.classList.remove('alert-danger');
-  document.querySelector('#showHide').style.display = "block";
-  document.querySelector('#due-date').classList.add('badge-success');
-}
+  if(vencimientoParseado<fechaParseada){
+    console.log('Oh no, ya venció el alimento');
+    document.querySelector('#showHide').style.display = "block";
+    warningCard.classList.remove('alert-success');
+    warningCard.classList.add('alert-danger');
+    document.querySelector('.alert-heading').textContent = `El alimento está vencido`
+    document.querySelector('#food-advice').textContent = `Te sugerimos no usar el producto`
+  } else {
+    console.log('Puedes comer el alimento');
+    document.querySelector('.alert-heading').textContent = `¡Alimento registrado correctamente!`
+    document.querySelector('#food-advice').textContent = `Ahora podrás usarlo en una receta`
+    warningCard.classList.add('alert-success');
+    warningCard.classList.remove('alert-danger');
+    document.querySelector('#showHide').style.display = "block";
+  }
 
 }
 // termina la captura de datos
 
 
-
-
-// =============== Pintando un alert con los datos del form ===============
+// =============== Pintando el alert con los datos del form ===============
 document.querySelector('body').addEventListener("keyup", mostrarRegistro);
 
 // Con tecla enter
