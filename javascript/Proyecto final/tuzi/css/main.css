@@ -20,7 +20,7 @@ body {
 }
 
 .text-14 {
-  font-size: 14px;
+  font-size: 14px !important;
 }
 
 .bg-color-app {
