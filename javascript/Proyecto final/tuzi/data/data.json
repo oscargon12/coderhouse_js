@@ -2,66 +2,79 @@
   "id": 1,
   "tipo_comida": "Desayuno",
   "receta_nombre": "KUMIS CON CEREAL",
-  "ingredientes": [" kumis", " leche", " manzana"]
+  "ingredientes": [" Kumis", " Leche", " Manzanas", " Cereal"],
+  "receta": "https://www.quericavida.com/recetas/copa-de-frutas-y-cereal/e02630ef-dc06-47a0-ab49-9e1e970d00af"
 }, {
   "id": 2,
   "tipo_comida": "Desayuno",
   "receta_nombre": "PAN WINNIE POOH",
-  "ingredientes": [" pan tajado", " huevos", " miel", " té"]
+  "ingredientes": [" Pan tajado", " Huevos", " Miel", " Té"],
+  "receta": "https://thesweetmolcajete.com/pan-integral-con-miel/"
 }, {
   "id": 3,
   "tipo_comida": "Desayuno",
   "receta_nombre": "WAFLES",
-  "ingredientes": [" mezcla wafles", " miel", " mermelada", " té"]
+  "ingredientes": [" Mezcla wafles", " Miel", " Mermelada", " Té"],
+  "receta": "https://www.solopostres.com/receta-de-waffles-wafles-5910/"
 }, {
   "id": 4,
   "tipo_comida": "Almuerzo",
   "receta_nombre": "ALBÓNDIGAS A LA JARDINERA",
-  "ingredientes": [" carne", " huevos", " ajo", " pan", "l eche", " perejil", " sal", " pimienta", " harina"]
+  "ingredientes": [" Carne", " Huevos", " Ajo", " Pan", " Leche", " Perejil", " Sal", " Pimienta", " Harina"],
+  "receta": "https://cocina-familiar.com/albondigas-a-la-jardinera.html"
 }, {
   "id": 5,
   "tipo_comida": "Almuerzo",
   "receta_nombre": "ALITAS DE POLLO CON PAPAS",
-  "ingredientes": [" pollo", " papas", " perejil", " vino blanco", " pimienta", " tomillo", " romero", " aceite de oliva", " sal"]
+  "ingredientes": [" Pollo", " Papas", " Perejil", " Vino blanco", " Pimienta", " Tomillo", " Romero", " Aceite de oliva", " Sal"],
+  "receta": "https://www.cocinafacil.com.mx/recetas/recetas-de-alitas-de-pollo/"
 }, {
   "id": 6,
   "tipo_comida": "Almuerzo",
   "receta_nombre": "EMPANADAS",
-  "ingredientes": [" hojaldre", " carne", " ajo", " queso", " huevos", " arroz", " arveja"]
+  "ingredientes": [" Hojaldre", " Carne", " Ajo", " Queso", " Huevos", " Arroz", " Arveja"],
+  "receta": "https://tuhogar.com/co/cocina/recetas/recetas-faciles-y-rapidas/como-hacer-empanadas-colombianas/"
 }, {
   "id": 7,
   "tipo_comida": "Almuerzo",
   "receta_nombre": "AGUACATES RELLENAS DE ATÚN",
-  "ingredientes": [" Aguacate", " atún", " Huevos", " maíz", " tomates", " mayonesa", " sal", " limón"]
+  "ingredientes": [" Aguacate", " Atún", " Huevos", " Maíz", " Tomates", " Mayonesa", " Sal", " Limón"],
+  "receta": "https://www.laylita.com/recetas/aguacate-relleno-con-atun/"
 }, {
   "id": 8,
   "tipo_comida": "Cena",
   "receta_nombre": "LASAGNA DE CARNE",
-  "ingredientes": [" carne", " ajo", " tomate", " vino blanco", " pimienta", " tomillo", " romero", " aceite de oliva", " sal"]
+  "ingredientes": [" Carne", " Ajo", " Tomate", " Vino blanco", " Pimienta", " Tomillo", " Romero", " Aceite de oliva", " Sal"],
+  "receta": "https://www.recetasderechupete.com/receta-de-lasana-de-carne/223/"
 }, {
   "id": 9,
   "tipo_comida": "Cena",
-  "receta_nombre": "Myranda",
-  "ingredientes": "Fosbraey"
+  "receta_nombre": "Papas rellenas",
+  "ingredientes": [" Carne", "Papas", " Cebolla", " Pimentón", " Tomate", " Harina", " Pimienta", " Ajo", " Sal", " Aceite" ],
+  "receta": "https://www.quericavida.com/recetas/papas-rellenas-colombianas/039a1279-f000-4c32-b592-4074d1b0a632"
 }, {
   "id": 10,
   "tipo_comida": "Cena",
-  "receta_nombre": "Celine",
-  "ingredientes": "O'Gaven"
+  "receta_nombre": "Torta de plátano",
+  "ingredientes": [" Plátanos", " Huevos", " Azucar", " Leche", " Mantequilla", " Queso", " Harina"],
+  "receta": "https://antojandoando.com/recetas/torta-de-platano-maduro/"
 }, {
   "id": 11,
   "tipo_comida": "Postre",
   "receta_nombre": "ARROZ CON LECHE",
-  "ingredientes": [" leche", " limón", " canela", " azucar", " crema de leche", " uvas pasas", " arroz"]
+  "ingredientes": [" Leche", " Limón", " Canela", " Azucar", " Crema de leche", " Uvas pasas", " Arroz"],
+  "receta": "https://www.recetasnestle.com.co/recetas/arroz-con-leche"
 }, {
   "id": 12,
   "tipo_comida": "Postre",
   "receta_nombre": "BROWNIE CON NUECES",
-  "ingredientes": ["Mantequilla", "Chocolate", "cacao", "huevos", " harina", " nueces", " azucar"]
+  "ingredientes": ["Mantequilla", " Chocolate", " Cacao", " Huevos", " Harina", " Nueces", " Azucar"],
+  "receta": "https://www.recetasderechupete.com/receta-de-brownies-de-chocolate-con-nueces-forma-clasica-y-facil/1220/"
 }, {
   "id": 13,
   "tipo_comida": "Postre",
   "receta_nombre": "TORTA DE ZANAHORIA",
-  "ingredientes": ["zanahorias", "harina", "canela", "levadura", "huevos", "azucar", "aceite de girasol", "sal", "frutos secos"]
+  "ingredientes": ["Zanahoria", " Harina", " Canela", " Levadura", " Huevos", " Azucar", " Aceite de girasol", " Sal", " Frutos secos"],
+  "receta": "https://www.recetasgratis.net/receta-de-torta-de-zanahoria-casera-9005.html"
 }
 ]

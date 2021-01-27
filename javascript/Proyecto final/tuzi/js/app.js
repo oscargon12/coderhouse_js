@@ -86,7 +86,7 @@ let categoriaStorage = localStorage.Categoria;
 
 let tabla = [
   { categoria:'Agrega una categoría', producto: 'Agrega un producto', vencimiento: 'Agrega una fecha' },
-  { categoria:categoriaStorage, producto: alimentoStorage, vencimiento: vencimientoStorage },
+  //{ categoria:categoriaStorage, producto: alimentoStorage, vencimiento: vencimientoStorage },
 ];
 
 
@@ -209,6 +209,8 @@ function mostrarRegistro(e) {
   // = Ocultando aviso de bar code =
 document.querySelector('#btnOk').addEventListener("click", ocultarAviso);
 
+
 function ocultarAviso(){
+  document.querySelector('#obtenerDatos').textContent = `Guardar otro`;
   document.querySelector('#advertising').style.display = "none";
 }

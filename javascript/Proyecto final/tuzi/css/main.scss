@@ -114,6 +114,15 @@ main .helper span {
   font-weight: 500 !important;
 }
 
+.recipe-btn{
+  color: white;
+}
+
+.recipe-btn:hover{
+  color: white;
+  text-decoration: none;
+}
+
 @media screen and (max-width: 900px) and (min-width: 400px) {
   body {
     padding-left: 0;

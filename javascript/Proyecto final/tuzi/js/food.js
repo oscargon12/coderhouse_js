@@ -327,6 +327,6 @@ padreLista.appendChild(elementoLista) */
 
   // Si está buena se pone verde
   }else{
-      console.log('Puedes disfrutar tu alimento');
+      console.log('El alimento no ha caducado, puedes disfrutarlo');
       document.querySelector('#due-date').classList.add('badge-success');
 }
